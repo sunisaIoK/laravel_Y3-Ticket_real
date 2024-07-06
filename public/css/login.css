@@ -1,0 +1,46 @@
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: linear-gradient(#350f3b 40%, #2205239c)100%;
+}
+
+
+
+.card{
+    margin-top: 15%;
+    padding: 3%;
+    width: 50%;
+    margin-left: 350px;
+    box-shadow: inset 10px 30px  100px hsla(309, 41%, 22%, 0.951);
+}
+
+.card-body{
+    border-radius: 30px;
+    background: linear-gradient(#16073c69, #160940);
+}
+
+.text-form{
+    color: rgb(255, 255, 255);
+}
+
+.form-group{
+    width: 500px;
+}
+
+.btn{
+    background: linear-gradient(#062e4f82 40%, #0000004c)100%;
+}
+.btn:hover{
+    padding: 2%;
+    background: linear-gradient(#062e4f82 40%, #0000004c)100%;
+}
+.regis{
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 16px;
+}

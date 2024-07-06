@@ -1,0 +1,56 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+.container{
+    background: linear-gradient(135deg,
+                rgba(17, 14, 82, 0.473)30%,
+                rgb(116, 4, 113)100%),
+            linear-gradient(to right, rgb(21, 47, 82) 10%, rgb(49, 7, 50) 100%);
+        box-shadow: inset 0 0 100px hsla(0, 0%, 0%, 0.3);
+    padding: 50px;
+    align-items: center;
+    margin-top: 13%;
+    font-size: 30px;
+    border-radius: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-size: cover;
+        background-repeat: no-repeat;
+    filter: brightness(1.6);
+        /* ปรับความเข้มของภาพ */
+        color: aliceblue;
+                box-shadow: 10px 10px 10px 10px hsla(0, 0%, 0%, 0.3);
+}
+
+.concert-b{
+    font-size: 70px;
+    width: 500px;
+    margin: 1;
+    margin-top: 20px;
+}
+.concert{
+    display: grid;
+        grid-template-columns: repeat(2, 1fr);
+}
+
+.jak{
+    font-size: 100%;
+    margin-left: 100%;
+    writing-mode: vertical-rl;
+        /* ปรับข้อความให้แสดงแนวตั้ง */
+        text-orientation: upright;
+        /* ปรับทิศทางของข้อความให้อยู่ตรง */
+    font-weight: bolder;
+    color: rgb(235, 157, 235);
+    box-shadow: 0 5px 30px 20px hsla(282, 88%, 16%, 0.649);
+    border: solid rgba(253, 239, 252, 0.446);
+}
+.btn{
+    color: aliceblue;
+    font-size: 30px;
+}
+.btn:hover{
+    color: rgb(0, 103, 193);
+    font-size: 25px;
+}
