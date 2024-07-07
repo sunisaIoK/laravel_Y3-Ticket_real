@@ -15,4 +15,13 @@ class datacon extends Model
     {
         return $this->Order(Admin::class);
     }
+
+    protected $fillable = [
+        'concertname', 'artist', 'mapzone', 'rateprice', 'datecon', 'detail', 'categories_id', 'imagecon', 'imagemap',
+    ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'categories_id');
+    }
 }

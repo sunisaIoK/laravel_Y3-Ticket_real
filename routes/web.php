@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\BarController;
+use App\Http\Controllers\ShopController;
 use App\Models\Order;
 use Barryvdh\DomPDF\PDF;
 
@@ -72,15 +73,10 @@ Route::controller(ProfileController::class)->group(function () {
 
 Route::controller(OrderController::class)->group(function () {
     Route::post('/checkout', 'Order')->name('order.order');
-    Route::get('/shop', 'shopProduct');
-    Route::get('shop-1', 'shop1');
-    Route::get('shop-2', 'shop2');
-    Route::get('shop-3', 'shop3');
-    Route::get('shop-4', 'shop4');
+    // Route::get('/shop', 'shopProduct');
     Route::get('confirm', 'pay');
 
     Route::get('/index', 'showConcerts');
-
     // admin
     Route::get('createcon','createcon')->name('');
     Route::get('Admin', 'adminprofile');
@@ -92,6 +88,9 @@ Route::controller(OrderController::class)->group(function () {
     Route::post('edit-con', 'updatecon')->name('admin.update');
 });
 
+Route::controller(ShopController::class)->group(function(){
+    Route::get('/shop/{id}', 'buyTicket')->name('buyTicket');
+});
 
 Route::controller(PDFController::class)->group(function () {
     Route::get('/con', 'PDFdownload')->name('shop.pdf');

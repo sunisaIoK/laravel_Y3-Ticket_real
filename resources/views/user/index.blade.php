@@ -67,18 +67,17 @@
     <div class="container">
         <div class="item">
             <h1>MUSIC SALE NOW</h1>
-            <div class="con-item">
-                @foreach ($profiles as $user)
-                    <div class="c-item">
-                        <h2 style="font-size: 20px">{{ $user->concertname }}</h2>
-                        <p>{{ $user->detail }}</p>
-                        <span>{{ $user->artist }}</span>
-                        <div class="pic" style="background-image: url('{{ url('images/' . $user->imagecon) }}');">
-                        </div>
-                        <a class="button" href="/shop"></a>
-                    </div>
-                @endforeach
+           <div class="con-item">
+        @foreach ($profiles as $concert)
+            <div class="c-item">
+                <h2 style="font-size: 20px">{{ $concert->concertname }}</h2>
+                <p>{{ $concert->detail }}</p>
+                <span>{{ $concert->artist }}</span>
+                <div class="pic" style="background-image: url('{{ url('images/' . $concert->imagecon) }}');"></div>
+                <a class="button" href="{{ route('buyTicket', ['id' => $concert->id]) }}">Buy Ticket</a>
             </div>
+        @endforeach
+    </div>
                 {{-- <div class="c-item  item2">
                     <h2 style="font-size: 20px">PETRO</h2>
                     <p>SKY DOME IN SEOUL 10.13.23</p>
