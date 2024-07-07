@@ -44,7 +44,6 @@
                 <a href="#" class="text3" style="font-size: 26px">About Us</a>
                 <a href="#" class="text4" style="font-size: 26px">Contact</a>
                 @foreach ($profiles as $profile)
-
                     <img src="{{ url('image/' . $profile->profileimage) }}" alt="" class="img-item1"
                         style="width: 50px;margin-top:1px;" class="name">
                 @endforeach
@@ -74,11 +73,12 @@
                         <h2 style="font-size: 20px">{{ $user->concertname }}</h2>
                         <p>{{ $user->detail }}</p>
                         <span>{{ $user->artist }}</span>
-                        <div class="pic" style="background-image: url('{{ url('image/' . $user->imagecon) }}');">
+                        <div class="pic" style="background-image: url('{{ url('images/' . $user->imagecon) }}');">
                         </div>
                         <a class="button" href="/shop"></a>
                     </div>
                 @endforeach
+            </div>
                 {{-- <div class="c-item  item2">
                     <h2 style="font-size: 20px">PETRO</h2>
                     <p>SKY DOME IN SEOUL 10.13.23</p>
@@ -112,7 +112,7 @@
                 </div>
                 <a class="button" href="/shop-4"></a>
                 </div> --}}
-            </div>
+
         </div>
         {{-- <div class="content">
         <div class="content-head">

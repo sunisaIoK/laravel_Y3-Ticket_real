@@ -27,14 +27,26 @@
                                     {{ Session::get('add-con') }}
                                 </div>
                             @endif
+                            @if (session('status'))
+                                <div class="alert alert-success">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
+
+                            @if (session('error'))
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
+
                             <form action="{{ route('add.data') }}" enctype="multipart/form-data" method="POST"
                                 style="position:relative">
                                 @csrf
-                                <label for="category">Category:</label>
-                                <select name="category_id" class="form-control" required>
+                                <p>หมวดหมู่</p>
+                                <select name="categories" class="form-control" required>
                                     <option value="">-- เลือกหมวดหมู่ --</option>
-                                    @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @foreach ($categories as $categories)
+                                        <option value="{{ $categories->id }}">{{ $categories->name }}</option>
                                     @endforeach
                                 </select>
                                 <p>Concert Name</p>
@@ -43,12 +55,12 @@
                                 <input type="text" class="form-control" name="artist" />
                                 <p>Zone</p>
                                 <input type="text" class="form-control" name="mapzone" required />
-                                <p>ราคา</p>
+                                <p>Rate Price</p>
                                 <input type="text" class="form-control" name="rateprice" required />
-                                <p>รายละเอียด</p>
+                                <p>Detail</p>
                                 <input type="text" class="form-control" name="detail" required />
-                                <p class="expcvv_text">วันที่แสดง</p>
-                                <input type="Text" class="form-control" name="date" id="exp_date" required />
+                                <p class="expcvv_text">Date</p>
+                                <input type="Text" class="form-control" name="datecon" id="exp_date" required />
                                 <div class="form-group"><br>
                                     <label for="file">Choose Concert Image</label>
                                     <input type="file" name="imagecon" class="form-control">

@@ -76,7 +76,7 @@ class AuthController extends Controller
                 } else {
                     $request->session()->put('userRole', 'user');
                 }
-                return redirect('index');
+                return redirect('home');
             }else {
                 return back()->with('fail','Password not match');
             }
@@ -93,7 +93,7 @@ class AuthController extends Controller
         if(Session::has('loginUser')){
             $user = User::where('id','=',Session::get('loginUser'))->first();
         }
-        return view('index',compact('user'));
+        return view('home',compact('user'));
     }
 
 

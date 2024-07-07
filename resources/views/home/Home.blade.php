@@ -28,16 +28,7 @@
         <a href="#" class="logo">Jak Ticket</a>
         <ul class="navlist">
             <li>
-                <a href="/index" class="">Page</a>
-            </li>
-            <li>
-                <a href="#">Concert</a>
-            </li>
-            <li>
-                <a href="#">About Us</a>
-            </li>
-            <li>
-                <a href="#">Contact Us</a>
+                <a href="/index" class="">เข้า</a>
             </li>
         </ul>
 

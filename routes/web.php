@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\BarController;
+use App\Models\Order;
 use Barryvdh\DomPDF\PDF;
 
 /*
@@ -80,17 +81,17 @@ Route::controller(OrderController::class)->group(function () {
 
     Route::get('/index', 'showConcerts');
 
-
     // admin
     Route::get('createcon','createcon')->name('');
     Route::get('Admin', 'adminprofile');
     Route::get('Customer', 'cus');
     Route::get('show/{id}', 'showadmin');
     Route::get('edit/{id}', 'edit');
-    Route::get('add', 'showAddForm')->name('showAddForm');
+    Route::post('add','showAddForm')->name('add.data');
     Route::post('data', 'adddatacon')->name('add.data');
     Route::post('edit-con', 'updatecon')->name('admin.update');
 });
+
 
 Route::controller(PDFController::class)->group(function () {
     Route::get('/con', 'PDFdownload')->name('shop.pdf');
