@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('firstname')->nullable();
-            $table->string('lastname')->nullable();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('role'); // หรือใช้ Enum หากมีความเหมาะสม
+            $table->rememberToken();
             $table->timestamps();
         });
     }

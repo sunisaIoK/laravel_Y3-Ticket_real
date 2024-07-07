@@ -12,4 +12,12 @@ class Admin extends Model
     {
         $this->attributes['password'] = bcrypt($password);
     }
+
+    protected $fillable = [
+        'name', 'email', 'password', 'role',
+    ];
+
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
 }

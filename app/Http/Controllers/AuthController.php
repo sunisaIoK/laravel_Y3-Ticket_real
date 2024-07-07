@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -19,9 +20,9 @@ class AuthController extends Controller
     public function regisUser(Request $request)
     {
         $request->validate([
-            'name'=>'required',
-            'email'=>'required|email|unique:users',
-            'password'=> 'required|min:8',
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8',
             // 'profile_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // เงื่อนไขของรูปภาพ
         ]);
 
@@ -36,15 +37,14 @@ class AuthController extends Controller
         // if ($request->hasFile('file')) {
         //     $image = $request->file('file')->store('images', 'public');
         //     $user->profileimage = $image;
-            // $user->save();
+        // $user->save();
         // }
 
-        if($answer)
-        {
-            return back()->with('success','regis success');
-        }else{
+        if ($answer) {
+            return back()->with('success', 'regis success');
+        } else {
             return
-            back()->with('fail', 'Something wrong');
+                back()->with('fail', 'Something wrong');
         }
     }
 
@@ -58,30 +58,39 @@ class AuthController extends Controller
     {
         return view('auth.login');
     }
+
     public function loginUser(Request $request)
     {
         $request->validate([
             'email' => 'required|email',
-            'password' => 'required|min:8',
+            'password' => 'required',
         ]);
-        $user = User::where('email','=',$request->email)->first();
-        if($user)
-        {
-            if (Hash::check($request->password, $user->password)) {
-                $request->session()->put('loginId', $user->name);
-                $request->session()->put('loginimage', $user->profileimage);
-                if ($user->role == 'admin') {
-                    $request->session()->put('userRole', 'admin');
-                    return redirect('Admin');
-                } else {
+
+        $user = User::where('email', $request->email)->first();
+
+        if ($user) {
+            if (Hash::check($request->password, $user->password)) { {
+                    // สำหรับผู้ใช้ทั่วไป
                     $request->session()->put('userRole', 'user');
+                    return redirect('index');
                 }
-                return redirect('home');
-            }else {
-                return back()->with('fail','Password not match');
+            } else {
+                return back()->with('fail', 'Password does not match');
             }
-        }else{
-            return back()->with('fail','This email is not regis');
+        }
+
+        $user = Admin::where('email', $request->email)->first();
+
+        if ($user) {
+            if (Hash::check($request->password, $user->password)) {
+                // ตรวจสอบสำหรับ Admin ที่มี email เป็น sunisa@gmail.com และ password เป็น sunisa
+                if ($user->role == 'admin' && $user->email == 'sunisa@gmail.com' && $request->password == 'sunisa') {
+                    $request->session()->put('userRole', 'admin');
+                    return redirect('admin');
+                } else {
+                    return back()->with('fail', 'Password does not match');
+                }
+            }
         }
     }
 
@@ -90,10 +99,10 @@ class AuthController extends Controller
     public function index()
     {
         $user = array();
-        if(Session::has('loginUser')){
-            $user = User::where('id','=',Session::get('loginUser'))->first();
+        if (Session::has('loginUser')) {
+            $user = User::where('id', '=', Session::get('loginUser'))->first();
         }
-        return view('home',compact('user'));
+        return view('home', compact('user'));
     }
 
 
@@ -101,7 +110,7 @@ class AuthController extends Controller
 
     public function logout()
     {
-        if(Session::has('loginUser')){
+        if (Session::has('loginUser')) {
             Session::pull('loginUser');
             return redirect('user.login');
         }
@@ -120,4 +129,3 @@ class AuthController extends Controller
         return view('user.index', compact('profiles'));
     }
 }
-
