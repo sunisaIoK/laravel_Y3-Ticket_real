@@ -29,4 +29,18 @@ return new class extends Migration
     {
         Schema::dropIfExists('admins');
     }
+
+    public function uplog()
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('role')->default('user');
+        });
+    }
+
+    public function downlog()
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('role');
+        });
+    }
 };

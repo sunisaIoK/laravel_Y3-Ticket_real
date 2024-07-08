@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
+use Database\Seeders\AdminSeeder;
 
 class AuthController extends Controller
 {
@@ -59,50 +60,42 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
+    //user
+    public function index()
+    {
+        $user = array();
+        if (Session::has('loginUser')) {
+            $user = Admin::where('id', '=', Session::get('loginUser'))->first();
+        }
+        return view('home.home', compact('user'));
+    }
+
     public function loginUser(Request $request)
     {
         $request->validate([
             'email' => 'required|email',
-            'password' => 'required',
+            'password' => 'required|min:8',
         ]);
 
-        $user = User::where('email', $request->email)->first();
+        $user = User::where('email', '=', $request->email)->first();
 
         if ($user) {
-            if (Hash::check($request->password, $user->password)) { {
-                    // สำหรับผู้ใช้ทั่วไป
+            if (Hash::check($request->password, $user->password)) {
+                $request->session()->put('loginId', $user->name);
+                $request->session()->put('loginimage', $user->profileimage);
+
+                if ($user->email == 'admin@gmail.com' && Hash::check('87654321', $user->password)) {
+                    return redirect('Admin');
+                } else {
                     $request->session()->put('userRole', 'user');
                     return redirect('index');
                 }
             } else {
                 return back()->with('fail', 'Password does not match');
             }
+        } else {
+            return back()->with('fail', 'This email is not registered');
         }
-
-        $user = Admin::where('email', $request->email)->first();
-
-        if ($user) {
-            if (Hash::check($request->password, $user->password)) {
-                // ตรวจสอบสำหรับ Admin ที่มี email เป็น sunisa@gmail.com และ password เป็น sunisa
-                if ($user->role == 'admin' && $user->email == 'sunisa@gmail.com' && $request->password == 'sunisa') {
-                    $request->session()->put('userRole', 'admin');
-                    return redirect('admin');
-                } else {
-                    return back()->with('fail', 'Password does not match');
-                }
-            }
-        }
-    }
-
-
-    //user
-    public function index()
-    {
-        $user = array();
-        if (Session::has('loginUser')) {
-            $user = User::where('id', '=', Session::get('loginUser'))->first();
-        }
-        return view('home', compact('user'));
     }
 
 

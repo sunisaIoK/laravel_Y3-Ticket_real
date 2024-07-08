@@ -36,11 +36,12 @@ Route::controller(AuthController::class)->group(function () {
 
 
     Route::get('login', 'login');//->middleware('NowLogin');
-    Route::post('admin', 'loginUser')->name('admin');
+    Route::post('/admin', 'loginUser')->name('admin.admin');
 
      Route::get('index', 'index');//->middleware('CheckLogin')
     Route::get('logout', 'logout');
     Route::get('home', 'home');
+
 
 
     //Route::get('User-index', 'user');

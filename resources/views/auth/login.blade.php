@@ -55,7 +55,7 @@
                         {{-- </div>
 
                         </form> --}}
-                        <form method="POST" action="{{ route('admin') }}">
+                        <form method="POST" action="{{ route('admin.admin') }}">
     @csrf
 
     <div>

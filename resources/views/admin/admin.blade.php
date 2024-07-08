@@ -18,7 +18,6 @@
 <body>
 
     <!-- Scrollable modal -->
-    <div class="container">
         <a href="{{ url('login') }}" style="color: wheat">Logout</a>
         <div class="content">
             <p class="text-end"><a href="{{ url('Customer') }}" class="btn btn-dark">แสดงข้อมูลลูกค้า</a></p>
