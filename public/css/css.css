@@ -3,12 +3,12 @@ body {
     margin: 0;
     width: 100vw; /* ใช้ 100vw เพื่อให้กว้างตามขนาดของหน้าจอ */
     max-width: 100%; /* จำกัดความกว้างให้ไม่เกินขนาดของหน้าจอ */
-    background: linear-gradient(
+    /* background: linear-gradient(
             135deg,
             rgba(36, 78, 67, 0) 0%,
             rgb(63, 7, 61) 100%
         ),
-        linear-gradient(to right, rgb(119, 117, 126) 0%, rgb(49, 7, 50) 100%);
+        linear-gradient(to right, rgb(119, 117, 126) 0%, rgb(49, 7, 50) 100%); */
     box-shadow: inset 0 0 100px hsla(0, 0%, 0%, 0.3);
     font-family: "Poppins", sans-serif; /* แก้ไขการสะกดจาก "Popins" เป็น "Poppins" */
     display: contents; /* เปลี่ยนจาก display: contents เป็น flex เพื่อจัดการเลย์เอาต์ */
@@ -31,6 +31,7 @@ body {
     width: 90%; /* กำหนดความกว้างให้ยืดหยุ่น */
     max-width: 90vh; /* จำกัดความกว้างไม่ให้เกินความสูงของหน้าจอ */
     text-align: center; /* จัดกึ่งกลางข้อความ */
+    margin-left: -5%;
 }
 
 .path {
@@ -45,14 +46,10 @@ body {
 
 .navbar {
     width: 100%;
-    max-width: 1634px;
-    background: linear-gradient(
-        245deg,
-        #511051 20%,
-        #311b71 39%,
-        #101b51 60%,
-        #160449 76%
-    );
+    max-width: 2500px;
+    box-shadow: inset 0 0 100px hsla(0, 0%, 0%, 0.3);
+    font-family: "Popins", sans-serif;
+    box-shadow: 2px 0px 50px 1px rgba(0, 0, 0, 0.444);
     align-items: center;
     justify-content: center;
     display: flex;
@@ -62,10 +59,11 @@ body {
 
 .nav {
     width: 100%;
-    max-width: 1564px;
+    max-width: 2504px;
     margin-top: -1%;
     height: 200px;
     display: flex;
+
     flex-direction: column; /* จัดเรียงองค์ประกอบในแนวตั้ง */
     align-items: center; /* จัดกึ่งกลางองค์ประกอบในแนวนอน */
     padding: 2%;
@@ -73,21 +71,20 @@ body {
 }
 
 /* สำหรับลิงก์ใน .path */
-.path{
+.path {
     margin-left: 10%;
 }
 .path a {
-    color: #ffffff;
+    color: #492194;
     font-family: "Ga Maamli", sans-serif;
     text-decoration: none;
     margin: 0 10px; /* เพิ่ม margin ระหว่างลิงก์ */
-    text-shadow: 2px 4px 2px rgba(0, 0, 0, 0.5); /* การตั้งค่าเงา */
+    text-shadow: 2px 4px 2px rgba(0, 0, 0, 0.297); /* การตั้งค่าเงา */
 }
 .path a:hover {
     font-family: "Ga Maamli", sans-serif;
     color: #000000;
     text-decoration: none;
-    margin: 0 10px; /* เพิ่ม margin ระหว่างลิงก์ */
     text-shadow: 2px 1px 2px rgba(255, 255, 255, 0.624);
 }
 
@@ -97,12 +94,16 @@ body {
 }
 
 /* จัดการกับส่วน .name-img */
-.name-img .n-t h1 {
-    margin-left: 90%;
+.n-t h1 {
+    margin-left: 80%;
     margin-top: -60px;
     font-size: 25px;
-    width: 80px;
-    color: rgb(178, 183, 255);
+    color: rgb(85, 47, 148);
+    text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.624);
+}
+.n-t h1:hover {
+    color: #5b1580;
+    text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.624);
 }
 
 /*card*/
@@ -111,9 +112,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-wrap: wrap;
     height: auto;
-    box-shadow: 5px 2px 10px 5px rgb(70, 11, 76);
+    padding: 20px;
 }
 
 .item h1 {
@@ -131,6 +132,18 @@ body {
     grid-template-columns: repeat(2, 0fr);
     grid-gap: 15px;
     /* ระยะห่างระหว่าง .c-item */
+    width: calc(
+        100% - 15px
+    ); /* กำหนดขนาดของ .con-item ให้เป็นครึ่งหนึ่งของ container ลบด้วยระยะห่าง */
+    margin: 15px;
+    padding: 15px;
+    /* background: linear-gradient(45deg, #24206c, #3a075f, #0e2272, #27b7cd); */
+    box-shadow: inset 0 0 100px hsla(0, 0%, 0%, 0.3);
+    font-family: "Popins", sans-serif;
+    box-shadow: 2px 0px 50px 1px rgba(0, 0, 0, 0.444);
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 .container .c-item {
     position: relative;
@@ -254,7 +267,6 @@ body {
     width: 100%;
     margin-top: -120px;
 }
-
 
 /* content */
 
@@ -549,10 +561,14 @@ footer {
     margin-top: 20%;
     background: linear-gradient(
             135deg,
-            rgba(14, 57, 70, 0.973) 0%,
-            rgb(56, 14, 54) 100%
+            rgba(255, 255, 255, 0.973) 0%,
+            rgb(255, 255, 255) 100%
         ),
-        linear-gradient(to right, rgb(174, 174, 250) 0%, rgb(55, 9, 55) 100%);
+        linear-gradient(
+            to right,
+            rgb(255, 255, 255) 0%,
+            rgb(255, 255, 255) 100%
+        );
     box-shadow: inset 0 0 100px hsla(0, 0%, 0%, 0.3);
     font-family: "Popins", sans-serif;
     box-shadow: 2px 0px 50px 1px rgba(0, 0, 0, 0.444);
@@ -585,24 +601,31 @@ footer {
 .footer-1 {
     /* background-color: #57752b; */
     padding: 5%;
-    color: #000000;
-    box-shadow: 2px 0px 50px 1px rgba(9, 9, 9, 0.142);
+    background: linear-gradient(45deg, #482657, #501b73, #316a71, #53cd27);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .footer-2 {
     /* background-color: #57752b; */
     padding: 5%;
     list-style-type: none;
-    color: #000000;
-    box-shadow: 2px 0px 50px 1px rgba(9, 9, 9, 0.142);
+    background: linear-gradient(45deg, #482657, #501b73, #316a71, #53cd27);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .footer-3 {
     /* background-color: #57752b; */
     padding: 5%;
+    margin-left: 15%;
     list-style-type: none;
-    color: #000000;
-    box-shadow: 2px 0px 50px 1px rgba(9, 9, 9, 0.142);
+    background: linear-gradient(45deg, #482657, #501b73, #316a71, #53cd27);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .foot-text {
@@ -610,15 +633,18 @@ footer {
 }
 
 .foot-text:hover {
-    color: #ffffff;
+    color: #a69cff;
 }
 
 .text-main {
-    color: #000000;
+    background: linear-gradient(45deg, #6c2069, #fe57f6, #60720e, #cdc227);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .text-main:hover {
-    color: #ffffff;
+    color: #78378a;
 }
 
 .foot-img {
@@ -654,7 +680,6 @@ footer {
     /* display: flex; */
     justify-content: center;
     border-radius: 20px 20px;
-    box-shadow: 0 10px 25px 0 rgba(22, 29, 61, 0.684);
 }
 
 .link {
@@ -707,7 +732,10 @@ footer {
     flex-shrink: 0;
     left: 18px;
     position: absolute;
-    color: #010a08;
+    background: linear-gradient(45deg, #24206c, #3a075f, #0e2272, #cdc227);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .link-title {
@@ -735,7 +763,6 @@ footer {
 }
 
 .container {
-    background: #191919;
     min-height: 100vh;
     font-family: Montserrat, sans-serif;
 }

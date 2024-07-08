@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: linear-gradient(245.59deg, #250944 0%, #4b1254 28.53%, #120a46 70.52%, #fff 100%);
+    background: linear-gradient(45deg, #1e1c4f, #2b0943, #081751, #0a3a36a4);
 }
 /* check */
 .check{

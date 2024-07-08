@@ -39,19 +39,15 @@
         <div class="nav">
             <a href="#" class="logo ">Jak Ticket</a>
             <div class="path" style="padding-top: 5%;">
-                <a href="/index" class="text" style="font-size: 30px">Home</a>
-                <a href="#" class="text2" style="font-size: 26px">Concert</a>
-                <a href="#" class="text3" style="font-size: 26px">About Us</a>
-                <a href="#" class="text4" style="font-size: 26px">Contact</a>
+                <a href="/index" class="text" style="font-size: 30px">Book Now</a>
+                <a href="#" class="text2" style="font-size: 26px">Comming soon</a>
                 @foreach ($profiles as $profile)
-
                     <img src="{{ url('image/' . $profile->profileimage) }}" alt="" class="img-item1"
                         style="width: 50px;margin-top:1px;" class="name">
                 @endforeach
-                <div class="name-img">
+                <div>
                     <a href="/profileUser/" class="n-t" style="text-decoration: none;">
-                        {{-- <img class="text1" src="/images/{{ $profile->profileimage }}"style="max-width:100px; " > --}}
-                        <p style=" margin-left:50px; margin-top: 10px; color:rgb(0, 0, 0);">{{ session('loginId') }}</p>
+                        <h1>{{ session('loginId') }}</h1>
                     </a>
                     @foreach ($profiles as $profile)@endforeach
                 </div>
@@ -67,7 +63,7 @@
     </div>
     <div class="container">
         <div class="item">
-            <h1>MUSIC SALE NOW</h1>
+            <h1>Booked Now</h1>
             <div class="con-item">
                 @foreach ($profiles as $concert)
                     <div class="c-item">
@@ -82,7 +78,7 @@
             </div>
         </div>
     </div>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
     </script>
