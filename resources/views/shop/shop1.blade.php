@@ -15,25 +15,17 @@
 <header>
     <div class="navbar" style="height: 200px">
         <div class="nav">
-            <a class="logo">
-                <img src="{{ asset('photo/logo.png') }}" alt="" width="400px">
-            </a>
             <div class="col" style="padding-top: 5%;">
                 <a href="/index" class="text" style="font-size: 23px">Home</a>
-                <a href="#" class="text2" style="font-size: 23px">Concert</a>
-                <a href="#" class="text3" style="font-size: 23px">About Us</a>
-                <a href="#" class="text4" style="font-size: 23px">Contact</a>
-            </div><a href="/confirm" class="check">เช็คข้อมูลการจอง</a>
-        </div>
+            </div>
 </header>
 
 <body>
     <div class="mainscreen">
         <!-- <img src="https://image.freepik.com/free-vector/purple-background-with-neon-frame_52683-34124.jpg"  class="bgimg " alt="">-->
         <div class="card">
-            {{-- พื้นในรูปรองเท้า --}}
             <div class="leftside">
-        <img src="{{ url('images/' . $concert->imagecon) }}" alt="Concert Image" style="width:100%;">
+                <img src="{{ url('images/' . $concert->imagecon) }}" alt="Concert Image" >
             </div>
             {{-- พื้นหลังที่กรอก --}}
             <div class="rightside">

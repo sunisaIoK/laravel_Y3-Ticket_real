@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background: linear-gradient(245.59deg, #250944 0%, #4b1254 28.53%, #120a46 70.52%, #fff 100%);
 }
 /* check */
 .check{
@@ -52,93 +53,12 @@ body {
 }
 
 .text:hover {
-    background-color: rgb(187, 65, 177);
+    background-color: rgb(23, 15, 80);
     color: aliceblue;
     font-family: Arial, sans-serif;
     text-shadow: 0 0 10px rgb(0, 0, 0);
 }
 
-.text1 {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    font-family: Arial, sans-serif;
-    padding: 1px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 20px;
-    box-shadow: 5px 2px 10px 5px rgba(55, 10, 10, 0.2);
-    margin-left: 2%;
-    margin-top: -50px;
-}
-
-.text1:hover {
-    background-color: rgba(162, 0, 154, 0.547);
-    color: rgb(134, 85, 141);
-    font-family: Arial, sans-serif;
-    text-shadow: 0 0 10px rgb(0, 0, 0);
-    box-shadow: 1px 2px 10px 2px rgba(255, 255, 255, 0.2);
-}
-
-.text2 {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    font-family: Arial, sans-serif;
-    padding: 10px;
-    background-color: rgb(255, 255, 255);
-    margin: 5px;
-    border-radius: 20px;
-    box-shadow: 5px 2px 10px 5px rgba(55, 10, 10, 0.2);
-    margin-left: 0.1%;
-}
-
-.text2:hover {
-    background-color: rgb(187, 65, 177);
-    color: aliceblue;
-    font-family: Arial, sans-serif;
-    text-shadow: 0 0 10px rgb(0, 0, 0);
-}
-
-.text3 {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    font-family: Arial, sans-serif;
-    padding: 10px;
-    background-color: rgb(255, 255, 255);
-    margin: 5px;
-    border-radius: 20px;
-    box-shadow: 5px 2px 10px 5px rgba(55, 10, 10, 0.2);
-    margin-left: 0.1%;
-}
-
-.text3:hover {
-    background-color: rgb(187, 65, 177);
-    color: aliceblue;
-    font-family: Arial, sans-serif;
-    text-shadow: 0 0 10px rgb(0, 0, 0);
-}
-
-.text4 {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    font-family: Arial, sans-serif;
-    padding: 10px;
-    background-color: rgb(255, 255, 255);
-    margin: 5px;
-    border-radius: 20px;
-    box-shadow: 5px 2px 10px 5px rgba(55, 10, 10, 0.2);
-    margin-left: 0.1%;
-}
-
-.text4:hover {
-    background-color: rgb(187, 65, 177);
-    color: aliceblue;
-    font-family: Arial, sans-serif;
-    text-shadow: 0 0 10px rgb(0, 0, 0);
-}
-
-.logo img {
-    margin-right: 200%;
-    margin-top: -70px;
-}
 
 /* bill */
 .bill{
@@ -150,35 +70,49 @@ body {
     min-height: 100vh;
     width: 100%;
     display: flex;
-    flex-direction: column;
-    background-color: #DFDBE5;
-    background-image: url("https://wallpaperaccess.com/full/3063067.png");
+    justify-content: center;
+    align-items: center; /* จัดกลุ่มสำหรับจาก  */
     color: #963E7B;
-
 }
 
 .card {
     width: 60rem;
-    margin: auto;
-    background: rgba(48, 47, 49, 0.452);
-    position: center;
-    align-self: center;
-    top: 50rem;
+    margin: 2rem;
+    background: rgb(253, 251, 255);
     border-radius: 1.5rem;
     box-shadow: 4px 3px 20px #3535358c;
     display: flex;
-    flex-direction: row;
-    margin-top: -39%;
+    margin-top: -5%;
+    margin-bottom: 5%;
+    flex-direction: row; /* เปลี่ยนเป็น row เพื่อให้ .leftside และ .rightside ประกบกันแนวนอน */
+    justify-content: space-between; /* จัดตำแหน่ง .leftside และ .rightside ให้อยู่สุดขอบ */
+    align-items: center; /* จัดให้ .leftside และ .rightside อยู่ตรงกลางตามแนวนอน */
+    @media (max-width: 768px) {
+        width: 90%;
+        flex-direction: column; /* เปลี่ยนเป็น column เมื่ออยู่ในหน้าจอขนาดเล็ก */
+    };
+
 }
 
 .leftside {
-    background: #000000;
-    width: 25rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    color: #ffffff;
     border-top-left-radius: 1.5rem;
     border-bottom-left-radius: 1.5rem;
+}
+.leftside img{
+    width: 30rem;
+    height: 730px; /* กำหนดความสูงตามที่ต้องการ */
+    object-fit: cover; /* รักษาอัตราส่วนภาพและครอบภาพให้เต็มพื้นที่ */
+    border-bottom-left-radius: 1.5rem;
+    border-top-left-radius: 1.5rem;
+}
+
+.rightside {
+    background-color: #ffffff;
+    width: 37rem;
+    padding: 1rem 2rem 3rem 3rem; /* ปรับตามที่ต้องการ */
+    border-bottom-right-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
 }
 
 .product {
@@ -197,13 +131,6 @@ body {
     border-radius: 1%;
 }
 
-.rightside {
-    background-color: #ffffff;
-    width: 35rem;
-    border-bottom-right-radius: 1.5rem;
-    border-top-right-radius: 1.5rem;
-    padding: 1rem 2rem 3rem 3rem;
-}
 
 p {
     display: block;
@@ -258,7 +185,7 @@ p {
 .text-center{
     color: rgb(224, 6, 6);
     margin-top: 3%;
-    margin-left: 0.5%;
+    margin-left: -4%;
 }
 
 /* price */
@@ -291,10 +218,10 @@ p {
     font-weight: 400;
     font-size: 1.4rem;
     margin-top: 30px;
-    width: 50%;
+    width: 60%;
     letter-spacing: .11rem;
     outline: none;
-    margin-left: 120px;
+    margin-left: 60px;
 }
 
 .button1:hover {

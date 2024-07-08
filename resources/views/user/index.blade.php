@@ -44,6 +44,7 @@
                 <a href="#" class="text3" style="font-size: 26px">About Us</a>
                 <a href="#" class="text4" style="font-size: 26px">Contact</a>
                 @foreach ($profiles as $profile)
+
                     <img src="{{ url('image/' . $profile->profileimage) }}" alt="" class="img-item1"
                         style="width: 50px;margin-top:1px;" class="name">
                 @endforeach
@@ -67,272 +68,21 @@
     <div class="container">
         <div class="item">
             <h1>MUSIC SALE NOW</h1>
-           <div class="con-item">
-        @foreach ($profiles as $concert)
-            <div class="c-item">
-                <h2 style="font-size: 20px">{{ $concert->concertname }}</h2>
-                <p>{{ $concert->detail }}</p>
-                <span>{{ $concert->artist }}</span>
-                <div class="pic" style="background-image: url('{{ url('images/' . $concert->imagecon) }}');"></div>
-                <a class="button" href="{{ route('buyTicket', ['id' => $concert->id]) }}">booked</a>
-            </div>
-        @endforeach
-    </div>
-                {{-- <div class="c-item  item2">
-                    <h2 style="font-size: 20px">PETRO</h2>
-                    <p>SKY DOME IN SEOUL 10.13.23</p>
-                    <span>Bon Jovi</span>
-                    <div class="pic">
-                        <img src="{{ asset('photo/event2.png') }}" alt="" class="img-item">
-                    </div><a class="button" href="/shop-1"></a>
-                </div> --}}
-                {{-- <div class="c-item  item2">
-                    <h2 style="font-size: 20px">Cyber Music Party</h2>
-                    <p>24TH DEC,2024 AT 23.00</p>
-                    <span>DJ KORINA</span>
-                    <div class="pic">
-                        <img src="{{ asset('photo/event5.png') }}" alt="" class="img-item2">
-                    </div><a class="button" href="/shop-2"></a>
-                </div>
-                <div class="c-item  item2">
-                    <h2 style="font-size: 20px">2023 MUSIC EVENT</h2>
-                    <p>123 Anywhere st. Any </p>
-                    <span>DEC</span>
-                    <div class="pic">
-                        <img src="{{ asset('photo/event4.png') }}" alt="" class="img-item">
-                    </div><a class="button" href="/shop-3"></a>
-                </div> --}}
-                {{-- <div class="c-item  item2">
-                <h2 style="font-size: 20px">MUSIC CONCERT</h2>
-                <p>June 18TH|AT 20.00-23.00 </p>
-                <span>J</span>
-                <div class="pic">
-                    <img src="{{ asset('photo/event6.png') }}" alt="" class="img-item">
-                </div>
-                <a class="button" href="/shop-4"></a>
-                </div> --}}
-
-        </div>
-        {{-- <div class="content">
-        <div class="content-head">
-            <div class="head">
-                <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="{{ asset('photo/song1.png') }}" class="d-block " alt="..."
-                                width="1000px">
+            <div class="con-item">
+                @foreach ($profiles as $concert)
+                    <div class="c-item">
+                        <h2 style="font-size: 20px">{{ $concert->concertname }}</h2>
+                        <p>{{ $concert->detail }}</p>
+                        <span>{{ $concert->artist }}</span>
+                        <div class="pic" style="background-image: url('{{ url('images/' . $concert->imagecon) }}');">
                         </div>
-                        <div class="carousel-item">
-                            <img src="{{ asset('photo/3.png') }}" class="d-block " alt="..." width="1000px">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="{{ asset('photo/4.png') }}" class="d-block " alt="..." width="1000px">
-                        </div>
+                        <a class="button" href="{{ route('buyTicket', ['id' => $concert->id]) }}">Buy Ticket</a>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-                <div class="c-slide-c">
-                    <div class="c-slide">
-                        <div class="card-c mb-3" style="max-width: 540px;">
-                            <div class="row g-0">
-                                <div class="col-md-4">
-                                    <img src="{{ asset('photo/20.jpg') }}" class="img-fluid rounded-start"
-                                        alt="..." style="margin-top: 10px">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title" style="margin-top: 40px;">Thunder Pro</h5>
-                                        <p class="card-text" style="margin-left:-40px">Live Concert AT Thunder Dome
-                                            for Heaven
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="c-slide">
-                        <div class="card-c mb-3" style="max-width: 540px;">
-                            <div class="row g-0">
-                                <div class="col-md-4">
-                                    <img src="{{ asset('photo/14.jpg') }}" class="img-fluid rounded-start"
-                                        alt="..." style="margin-top: 10px">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title" style="margin-top: 40px;">One Block</h5>
-                                        <p class="card-text" style="margin-left:-40px">20 ตุลาคม 2023 งานเริ่ม เวลา
-                                            21.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="c-slide">
-                        <div class="card-c mb-3" style="max-width: 540px;">
-                            <div class="row g-0">
-                                <div class="col-md-4">
-                                    <img src="{{ asset('photo/23.png') }}" class="img-fluid rounded-start"
-                                        alt="..." style="margin-top: 10px">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title" style="margin-top: 40px;">CONCERT</h5>
-                                        <p class="card-text" style="margin-left:-40px">The Worship Night 2024 DEC 22
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="c-slide">
-                        <div class="card-c mb-3" style="max-width: 540px;">
-                            <div class="row g-0">
-                                <div class="col-md-4">
-                                    <img src="{{ asset('photo/21.jpg') }}" class="img-fluid rounded-start"
-                                        alt="..." style="margin-top: 10px">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title" style="margin-top: 40px;">LIVE CONCERT</h5>
-                                        <p class="card-text" style="margin-left:-40px">Live Concert A Music Aword For
-                                            You</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-    </div>
-    <div class="text-slide" style="text-align: center">
-        <h1>ฟังเพลงให้เพลิน</h1>
-        <h3>รับจองบัตรคอนเสิร์ตจากทั่วทุกมุม ใช้ชีวิตให้สุดแล้วหยุดที่เอวเคล็ด</h3>
-    </div>
-    <div class="container" style="margin-top: 50px;background:#0f0f22">
-        <h1 class="text-v">คอนเสิร์ตใหญ่แห่งปี เร็วๆนี้</h1>
-        <div class="container-view1">
-            {{-- <div class="c-item">
-                        <h2 style="font-size: 20px">{{ $user->concertname }}</h2>
-                        <p>{{ $user->detail }}</p>
-                        <span>{{ $user->artist }}</span>
-                        <div class="pic" style="background-image: url('{{ url('image/' . $user->imagecon) }}');">
-                        </div>
-                        <a class="button" href="/shop"></a>
-                    </div> --}}
-
-            {{-- <div class="card2 card01">
-                <div class="border">
-                    <h2 style="font-size: 20px">{{ $user->concertname }}</h2>
-                    <p>{{ $user->detail }}</p>
-                    <span>{{ $user->artist }}</span>
-                    <div class="icon">
-                        <div class="pic" style="background-image: url('{{ url('image/' . $user->imagecon) }}');">
-                    </div>
-                    <a class="button" href="/shop"></a>
-                </div>
-            </div> --}}
-
-
-            {{-- <div class="card2 card12" style="background-image: url(/photo/18.jpg)">
-                <div class="border">
-                    <h2></h2>
-                    <div class="icon">
-                    </div>
-                </div>
-            </div>
-            <div class="card2 card12" style="background-image: url(/photo/35.png)">
-                <div class="border">
-                    <h2></h2>
-                    <div class="icon">
-                    </div>
-                </div>
-            </div>
-            <div class="card2 card12" style="background-image: url(/photo/event1.png);">
-                <div class="border">
-                    <h2></h2>
-                    <div class="icon">
-
-                    </div>
-                </div>
-            </div> --}}
-        </div>
-    </div>
-    <div class="content2">
-        <div class="card-t text-white">
-            <img src="{{ asset('photo/168.png') }}" class="card-img" alt="...">
-            {{-- <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text">Last updated 3 mins ago</p> --}}
-        </div>
-    </div>
-    <div class="container" style="margin-top: 50px;">
-        <h1 class="text-v">เทศกาลดนตรี เร็วๆนี้</h1>
-        <div class="container-view">
-            <div class="card card0" style="background-image: url(/photo/thehu.png)">
-                <div class="border">
-                    <h2></h2>
-                    <div class="icon"></div>
-                </div>
-            </div>
-            <div class="card card0" style="background-image: url(/photo/p2.png)">
-                <div class="border">
-                    <h2></h2>
-                    <div class="icon"></div>
-                </div>
-            </div>
-            <div class="card card1" style="background-image: url(/photo/pppng.jpg)">
-                <div class="border">
-                    <h2></h2>
-                    <div class="icon">
-
-                    </div>
-                </div>
-            </div>
-            <div class="card card1" style="background-image: url(/photo/thehu1.png)">
-                <div class="border">
-                    <h2></h2>
-                    <div class="icon">
-
-                    </div>
-                </div>
-            </div>
-            <div class="card card1" style="background-image: url(/photo/p1.png)">
-                <div class="border">
-                    <h2></h2>
-                    <div class="icon">
-
-                    </div>
-                </div>
-            </div>
-            <div class="card card1" style="background-image: url(/photo/b.png)">
-                <div class="border">
-                    <h2></h2>
-                    <div class="icon">
-
-                    </div>
-                </div>
-            </div>
-            <div class="card card1" style="background-image: url(/photo/th3.png)">
-                <div class="border">
-                    <h2></h2>
-                    <div class="icon">
-
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
     </script>

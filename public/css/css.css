@@ -64,7 +64,6 @@ body {
     width: 100%;
     max-width: 1564px;
     margin-top: -1%;
-    font-size: 20px;
     height: 200px;
     display: flex;
     flex-direction: column; /* จัดเรียงองค์ประกอบในแนวตั้ง */
@@ -74,6 +73,9 @@ body {
 }
 
 /* สำหรับลิงก์ใน .path */
+.path{
+    margin-left: 10%;
+}
 .path a {
     color: #ffffff;
     font-family: "Ga Maamli", sans-serif;
@@ -95,20 +97,12 @@ body {
 }
 
 /* จัดการกับส่วน .name-img */
-.name-img {
-    display: flex;
-    align-items: center;
-}
-
-.name-img .n-t {
-    text-decoration: none;
-    margin-left: 10px; /* เพิ่ม margin ระหว่างรูปภาพกับข้อความ */
-}
-
-.name-img p {
-    margin-left: 10px;
-    margin-top: 10px;
-    color: rgb(0, 0, 0);
+.name-img .n-t h1 {
+    margin-left: 90%;
+    margin-top: -60px;
+    font-size: 25px;
+    width: 80px;
+    color: rgb(178, 183, 255);
 }
 
 /*card*/
@@ -175,7 +169,7 @@ body {
     font-size: 20px;
     text-align: right;
     letter-spacing: 1px;
-    transition: 0.2s ease;
+    transition: 1.2s ease;
 }
 
 .container .c-item span {
@@ -240,7 +234,7 @@ body {
 .container .c-item:hover p {
     opacity: 1;
     /*ความฌปร่งแสง หรือมองเห็น*/
-    right: 150px;
+    top: 80px;
 }
 
 .container .c-item:hover span {
