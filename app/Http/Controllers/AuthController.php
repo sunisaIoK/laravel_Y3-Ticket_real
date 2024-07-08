@@ -85,6 +85,7 @@ class AuthController extends Controller
                 $request->session()->put('loginimage', $user->profileimage);
 
                 if ($user->email == 'admin@gmail.com' && Hash::check('87654321', $user->password)) {
+                    
                     return redirect('Admin');
                 } else {
                     $request->session()->put('userRole', 'user');
@@ -114,11 +115,15 @@ class AuthController extends Controller
     {
         return view('user.profile');
     }
-
-
     public function Profile()
     {
         $profiles = User::all();
         return view('user.index', compact('profiles'));
+    }
+
+    public function Profileadmin()
+    {
+        $profiles = User::all();
+        return view('admin.admin', compact('profiles'));
     }
 }

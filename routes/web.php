@@ -41,6 +41,7 @@ Route::controller(AuthController::class)->group(function () {
      Route::get('index', 'index');//->middleware('CheckLogin')
     Route::get('logout', 'logout');
     Route::get('home', 'home');
+    Route::get('home', 'home');
 
 
 

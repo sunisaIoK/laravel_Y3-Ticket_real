@@ -18,13 +18,20 @@
 <body>
 
     <!-- Scrollable modal -->
-        <a href="{{ url('login') }}" style="color: wheat">Logout</a>
-        <div class="content">
-            <p class="text-end"><a href="{{ url('Customer') }}" class="btn btn-dark">แสดงข้อมูลลูกค้า</a></p>
-            <p class="text-end"><a href="{{ url('createcon') }}" class="btn btn-dark">เพิ่มconcert</a></p>
-            <h1 class="text-head">Admin</h1>
-            <div class="item">
-                <div class="con-item">
+    <a href="{{ url('login') }}" style="color: wheat">Logout</a>
+    <div class="content">
+        <p class="text-end"><a href="{{ url('Customer') }}" class="btn btn-dark">แสดงข้อมูลลูกค้า</a></p>
+        <p class="text-end"><a href="{{ url('createcon') }}" class="btn btn-dark">เพิ่มconcert</a></p>
+        <h1 class="text-head">Admin</h1>
+        {{-- @if (session('admin'))
+            <p>Welcome, {{ session('admin')->name }}</p>
+            <p>Email: {{ session('admin')->email }}</p>
+            <!-- แสดงข้อมูลอื่น ๆ ของ admin ตามที่ต้องการ -->
+        @else
+            <p style=" margin-left:50px; margin-top: 10px; color:rgb(0, 0, 0);">{{ session('loginId') }}</p>
+        @endif --}}
+        <div class="item">
+            <div class="con-item">
                 @foreach ($users as $user)
                     <div class="c-item">
                         <h2 style="font-size: 20px">{{ $user->concertname }}</h2>
@@ -36,8 +43,8 @@
                     </div>
                 @endforeach
             </div>
-            </div>
         </div>
+    </div>
     </div>
 
     {{-- <a href="{{ url('profile') }}" class="btn btn-dark">Add data</a> --}}

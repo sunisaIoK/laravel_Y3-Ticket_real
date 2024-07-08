@@ -168,11 +168,11 @@ body {
     z-index: 99;
     position: absolute;
     bottom: 30px;
-    right: 130px;
+    right: 10px;
     width: 150px;
     color: #fff;
     opacity: 0;
-    font-size: 12px;
+    font-size: 20px;
     text-align: right;
     letter-spacing: 1px;
     transition: 0.2s ease;
@@ -197,7 +197,6 @@ body {
     z-index: 100;
     width: 300px;
     height: 200px;
-    background-image: url(haechan.jpeg);
     background-size: cover;
     border-radius: 12px;
     filter: grayscale(100%);
@@ -211,19 +210,23 @@ body {
     bottom: 40px;
     width: 30px;
     height: 30px;
-    background-color: #315f7365;
+    background-color: #17266765;
     border: none;
+    color: #fff;
     border-radius: 30px;
     cursor: pointer;
+    justify-content: center;
+    text-decoration: none;
+    text-align: center;
     /*ตัวชี้รูปมือ*/
     outline: none;
     transition: 0.3s ease;
 }
 
 .container .c-item:hover .button {
-    transform: scale(16.5);
+    transform: scale(0.5);
     /*ขนาดการขยายของปุ่มเมื่อชี้*/
-    opacity: 0.5;
+    opacity: 5.5;
     /*ความโปร่งแสง หรือ ความบางของสี*/
 }
 
@@ -237,7 +240,7 @@ body {
 .container .c-item:hover p {
     opacity: 1;
     /*ความฌปร่งแสง หรือมองเห็น*/
-    right: 60px;
+    right: 150px;
 }
 
 .container .c-item:hover span {
@@ -249,31 +252,15 @@ body {
     filter: grayscale(0);
     /*แตะแล้วเปลี่ยนเป็นสีเดิมของภาพ*/
     width: 400px;
-    margin-left: 10px;
-    margin-top: -50px;
-}
-
-.container .c-item2 .pic {
-    /* background-image: url(Heachan.jpeg); */
-    transition: 0.3s ease;
-}
-
-.container .c-item2 .button {
-    background-color: #26c3a1;
+    margin-left: 1px;
+    margin-top: -10px;
 }
 
 .img-item {
     width: 100%;
     margin-top: -120px;
 }
-.img-item1 {
-    width: 100%;
-    margin-top: -75px;
-}
-.img-item2 {
-    width: 100%;
-    margin-top: -60px;
-}
+
 
 /* content */
 

@@ -74,7 +74,7 @@
                 <p>{{ $concert->detail }}</p>
                 <span>{{ $concert->artist }}</span>
                 <div class="pic" style="background-image: url('{{ url('images/' . $concert->imagecon) }}');"></div>
-                <a class="button" href="{{ route('buyTicket', ['id' => $concert->id]) }}">Buy Ticket</a>
+                <a class="button" href="{{ route('buyTicket', ['id' => $concert->id]) }}">booked</a>
             </div>
         @endforeach
     </div>
