@@ -16,6 +16,6 @@ class Zone extends Model
 
     public function datacon()
     {
-        return $this->belongsTo(Datacon::class);
+        return $this->belongsTo(datacon::class, 'datacon_id');
     }
 }

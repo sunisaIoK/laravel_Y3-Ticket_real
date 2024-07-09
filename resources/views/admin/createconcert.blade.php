@@ -38,7 +38,7 @@
                                     {{ session('error') }}
                                 </div>
                             @endif
-                            <form action="{{ route('add.data') }}" enctype="multipart/form-data" method="POST"
+                            {{-- <form action="{{ route('add.data') }}" enctype="multipart/form-data" method="POST"
                                 style="position:relative">
                                 @csrf
                                 <p>หมวดหมู่</p>
@@ -68,8 +68,60 @@
                                 </div>
                                 <br>
                                 <button type="submit" class="btn">ยืนยัน</button>
-                            </form>
+                            </form> --}}
+                            <form action="{{ route('add.data') }}" enctype="multipart/form-data" method="POST" style="position:relative">
+    @csrf
+    <p>หมวดหมู่</p>
+    <select name="category_id" class="form-control" required>
+        <option value="">-- เลือกหมวดหมู่ --</option>
+        @foreach ($categories as $category)
+            <option value="{{ $category->id }}">{{ $category->name }}</option>
+        @endforeach
+    </select>
+    <p>ชื่อคอนเสิร์ต</p>
+    <input type="text" class="form-control" name="concertname" required />
+    <p>ศิลปิน</p>
+    <input type="text" class="form-control" name="artist" required />
+    <p>รายละเอียด</p>
+    <textarea class="form-control" name="detail" required></textarea>
 
+    <div id="zones-wrapper">
+        <div class="zone-group">
+            <p>โซน</p>
+            <input type="text" class="form-control" name="zones[0][zone_name]" required />
+            <p>ราคาตั๋ว</p>
+            <input type="number" step="0.01" class="form-control" name="zones[0][rateprice]" required />
+        </div>
+    </div>
+    <button type="button" onclick="addZone()">เพิ่มโซน</button>
+
+    <div class="form-group"><br>
+        <label for="imagecon">เลือกภาพคอนเสิร์ต</label>
+        <input type="file" name="imagecon" class="form-control" required>
+    </div>
+    <div class="form-group"><br>
+        <label for="imagemap">เลือกแผนที่คอนเสิร์ต</label>
+        <input type="file" name="imagemap" class="form-control" required>
+    </div>
+    <br>
+    <button type="submit" class="btn">ยืนยัน</button>
+</form>
+
+<script>
+function addZone() {
+    const wrapper = document.getElementById('zones-wrapper');
+    const index = wrapper.children.length;
+    const newZone = `
+        <div class="zone-group">
+            <p>โซน</p>
+            <input type="text" class="form-control" name="zones[${index}][zone_name]" required />
+            <p>ราคาตั๋ว</p>
+            <input type="number" step="0.01" class="form-control" name="zones[${index}][rateprice]" required />
+        </div>
+    `;
+    wrapper.insertAdjacentHTML('beforeend', newZone);
+}
+</script>
 
 
                         </div>

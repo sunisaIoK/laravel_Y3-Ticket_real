@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('concertname');
             $table->string('artist');
-            $table->string('mapzone'); // ตรวจสอบให้แน่ใจว่ามีบรรทัดนี้
-            $table->decimal('rateprice', 10, 2);
             $table->text('detail');
             $table->string('imagecon')->nullable();
             $table->string('imagemap')->nullable();

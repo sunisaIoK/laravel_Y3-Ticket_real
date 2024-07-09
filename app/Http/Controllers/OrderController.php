@@ -97,6 +97,60 @@ class OrderController extends Controller
         }
     }
     // เพิ่มข้อมูล
+    // public function adddatacon(Request $request)
+    // {
+    //     try {
+    //         // Validate the incoming request data
+    //         $request->validate([
+    //             'concertname' => 'required|string|max:255',
+    //             'artist' => 'required|string|max:255',
+    //             'mapzone' => 'required|string|max:255',
+    //             'rateprice' => 'required|numeric',
+    //             // 'datecon' => 'required|date',
+    //             'detail' => 'required|string',
+    //             'category_id' => 'required|exists:categories,id',
+    //             'imagecon' => 'required|image',
+    //             'imagemap' => 'required|image',
+    //         ]);
+    //         // Assign the validated data to variables
+    //         $concertname = $request->concertname;
+    //         $artist = $request->artist;
+    //         $mapzone = $request->mapzone;
+    //         $rateprice = $request->rateprice;
+    //         // $datecon = $request->datecon;
+    //         $detail = $request->detail;
+    //         $category_id = $request->category_id;
+    //         // Handle the imagecon file upload
+    //         if ($request->hasFile('imagecon')) {
+    //             $file = $request->file('imagecon');
+    //             $imageconname = time() . '.' . $file->getClientOriginalExtension();
+    //             $file->move(public_path('images'), $imageconname);
+    //         }
+    //         // Handle the imagemap file upload
+    //         if ($request->hasFile('imagemap')) {
+    //             $file = $request->file('imagemap');
+    //             $imagemapname = time() . '.' . $file->getClientOriginalExtension();
+    //             $file->move(public_path('image'), $imagemapname);
+    //         }
+    //         // Create a new datacons entry
+    //         $user = new datacon();
+    //         $user->concertname = $concertname;
+    //         $user->artist = $artist;
+    //         $user->mapzone = $mapzone;
+    //         $user->rateprice = $rateprice;
+    //         // $user->datecon = $datecon;
+    //         $user->detail = $detail;
+    //         $user->category_id = $category_id; // Save the categories_id
+    //         $user->imagecon = $imageconname ?? null; // Save the imagecon file name
+    //         $user->imagemap = $imagemapname ?? null; // Save the imagemap file name
+    //         $user->save();
+    //         // Return back with a success message
+    //         return back()->with('status', 'Data saved successfully');
+    //     } catch (\Exception $e) {
+    //         // Return back with an error message
+    //         return back()->with('error', 'An error occurred: ' . $e->getMessage());
+    //     }
+    // }
     public function adddatacon(Request $request)
     {
         try {
@@ -104,46 +158,45 @@ class OrderController extends Controller
             $request->validate([
                 'concertname' => 'required|string|max:255',
                 'artist' => 'required|string|max:255',
-                'mapzone' => 'required|string|max:255',
-                'rateprice' => 'required|numeric',
-                // 'datecon' => 'required|date',
                 'detail' => 'required|string',
                 'category_id' => 'required|exists:categories,id',
-                'imagecon' => 'required|image',
-                'imagemap' => 'required|image',
+                'imagecon' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+                'imagemap' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+                'zones.*.zone_name' => 'required|string|max:255',
+                'zones.*.rateprice' => 'required|numeric',
             ]);
-            // Assign the validated data to variables
-            $concertname = $request->concertname;
-            $artist = $request->artist;
-            $mapzone = $request->mapzone;
-            $rateprice = $request->rateprice;
-            // $datecon = $request->datecon;
-            $detail = $request->detail;
-            $category_id = $request->category_id;
-            // Handle the imagecon file upload
+
+            // Create a new datacon entry
+            $datacon = new Datacon();
+            $datacon->concertname = $request->concertname;
+            $datacon->artist = $request->artist;
+            $datacon->detail = $request->detail;
+            $datacon->category_id = $request->category_id;
+
             if ($request->hasFile('imagecon')) {
                 $file = $request->file('imagecon');
                 $imageconname = time() . '.' . $file->getClientOriginalExtension();
                 $file->move(public_path('images'), $imageconname);
+                $datacon->imagecon = $imageconname;
             }
-            // Handle the imagemap file upload
+
             if ($request->hasFile('imagemap')) {
                 $file = $request->file('imagemap');
                 $imagemapname = time() . '.' . $file->getClientOriginalExtension();
-                $file->move(public_path('image'), $imagemapname);
+                $file->move(public_path('images'), $imagemapname);
+                $datacon->imagemap = $imagemapname;
             }
-            // Create a new datacons entry
-            $user = new datacon();
-            $user->concertname = $concertname;
-            $user->artist = $artist;
-            $user->mapzone = $mapzone;
-            $user->rateprice = $rateprice;
-            // $user->datecon = $datecon;
-            $user->detail = $detail;
-            $user->category_id = $category_id; // Save the categories_id
-            $user->imagecon = $imageconname ?? null; // Save the imagecon file name
-            $user->imagemap = $imagemapname ?? null; // Save the imagemap file name
-            $user->save();
+
+            $datacon->save();
+
+            // Save zones
+            foreach ($request->zones as $zone) {
+                $datacon->zones()->create([
+                    'zone_name' => $zone['zone_name'],
+                    'rateprice' => $zone['rateprice'],
+                ]);
+            }
+
             // Return back with a success message
             return back()->with('status', 'Data saved successfully');
         } catch (\Exception $e) {

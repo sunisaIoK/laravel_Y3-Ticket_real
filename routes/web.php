@@ -10,6 +10,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\BarController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\ZoneController;
 use App\Models\Order;
 use Barryvdh\DomPDF\PDF;
 
