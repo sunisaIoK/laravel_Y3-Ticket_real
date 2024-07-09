@@ -1,144 +1,61 @@
 body {
     padding: 0;
     margin: 0;
+    width: 100vw; /* ใช้ 100vw เพื่อให้กว้างตามขนาดของหน้าจอ */
+    max-width: 100%; /* จำกัดความกว้างให้ไม่เกินขนาดของหน้าจอ */
+    /* background: linear-gradient(
+            135deg,
+            rgba(36, 78, 67, 0) 0%,
+            rgb(63, 7, 61) 100%
+        ),
+        linear-gradient(to right, rgb(119, 117, 126) 0%, rgb(49, 7, 50) 100%); */
+    box-shadow: inset 0 0 100px hsla(0, 0%, 0%, 0.3);
+    font-family: "Poppins", sans-serif; /* แก้ไขการสะกดจาก "Popins" เป็น "Poppins" */
+    display: contents; /* เปลี่ยนจาก display: contents เป็น flex เพื่อจัดการเลย์เอาต์ */
+    min-height: 100vh; /* เพิ่มความสูงขั้นต่ำให้เต็มหน้าจอ */
 }
 
-body {
-    margin: 0;
-    background-color: black;
-    background: linear-gradient(135deg,
-            rgba(36, 78, 67, 0)0%,
-            rgb(63, 7, 61)100%),
-        linear-gradient(to right, rgb(119, 117, 126) 0%, rgb(49, 7, 50) 100%);
-    box-shadow: inset 0 0 100px hsla(0, 0%, 0%, 0.3);
-    font-family: "Popins", sans-serif;
+.Logout{
+    color: #170d53;
+    font-size: 30px;
+    margin-left: 3%;
+    text-decoration: none;
+}
+.Logout:hover{
+    color: #237d8b;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+.btn{
+    font-size: 20px;
+    background-color: #0e2272;
 }
 
 /* navbar */
 .navbar {
-    background-color: whitesmoke;
+    background-color: rgb(189, 18, 18);
     text-align: right;
     height: 8%;
 }
 
 .nav {
     width: 100%;
-    /* background-color: rgb(145, 195, 176); */
     margin-top: -1%;
     font-size: 20px;
     height: 200px;
     margin-left: 90px;
 }
-
-.col {
-    margin-left: 600px;
-    padding: 2%;
-    margin-top: -5px;
-    text-decoration: none;
+.text-head {
+    margin-left: 3%;
+    margin-top:-90px;
+    background-image: linear-gradient(to right, #1e00ff, #3333cc);
+    /* เปลี่ยนสีพื้นหลังตรงนี้ */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 10px rgb(47, 19, 50);
 }
-
-.text {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    font-family: Arial, sans-serif;
-    padding: 10px;
-    background-color: rgb(255, 255, 255);
-    margin: 5px;
-    border-radius: 20px;
-    box-shadow: 5px 2px 10px 5px rgba(55, 10, 10, 0.2);
-    margin-left: 30px;
-    margin-top: 50px;
-}
-
-.text:hover {
-    background-color: rgb(187, 65, 177);
-    color: aliceblue;
-    font-family: Arial, sans-serif;
-    text-shadow: 0 0 10px rgb(0, 0, 0);
-}
-
-.text1 {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    font-family: Arial, sans-serif;
-    padding: 1px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 20px;
-    box-shadow: 5px 2px 10px 5px rgba(55, 10, 10, 0.2);
-    margin-left: 2%;
-    margin-top: -50px;
-}
-
-.text1:hover {
-    background-color: rgba(162, 0, 154, 0.547);
-    color: rgb(134, 85, 141);
-    font-family: Arial, sans-serif;
-    text-shadow: 0 0 10px rgb(0, 0, 0);
-    box-shadow: 1px 2px 10px 2px rgba(255, 255, 255, 0.2);
-}
-
-.text2 {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    font-family: Arial, sans-serif;
-    padding: 10px;
-    background-color: rgb(255, 255, 255);
-    margin: 5px;
-    border-radius: 20px;
-    box-shadow: 5px 2px 10px 5px rgba(55, 10, 10, 0.2);
-    margin-left: 0.1%;
-}
-
-.text2:hover {
-    background-color: rgb(187, 65, 177);
-    color: aliceblue;
-    font-family: Arial, sans-serif;
-    text-shadow: 0 0 10px rgb(0, 0, 0);
-}
-
-.text3 {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    font-family: Arial, sans-serif;
-    padding: 10px;
-    background-color: rgb(255, 255, 255);
-    margin: 5px;
-    border-radius: 20px;
-    box-shadow: 5px 2px 10px 5px rgba(55, 10, 10, 0.2);
-    margin-left: 0.1%;
-}
-
-.text3:hover {
-    background-color: rgb(187, 65, 177);
-    color: aliceblue;
-    font-family: Arial, sans-serif;
-    text-shadow: 0 0 10px rgb(0, 0, 0);
-}
-
-.text4 {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    font-family: Arial, sans-serif;
-    padding: 10px;
-    background-color: rgb(255, 255, 255);
-    margin: 5px;
-    border-radius: 20px;
-    box-shadow: 5px 2px 10px 5px rgba(55, 10, 10, 0.2);
-    margin-left: 0.1%;
-}
-
-.text4:hover {
-    background-color: rgb(187, 65, 177);
-    color: aliceblue;
-    font-family: Arial, sans-serif;
-    text-shadow: 0 0 10px rgb(0, 0, 0);
-}
-
-.logo img {
-    margin-right: 200%;
-        margin-top: -70px;
-}
-
 /*card*/
 .item {
     width: 100%;
@@ -147,21 +64,9 @@ body {
     align-items: center;
     flex-direction: column;
     height: auto;
-    margin-top: 50px;
-    background-color: #26c3a1;
+    margin-top: 90px;
 }
 
-
-.text-head {
-    margin: 50px;
-    margin-top: -50px;
-    background-image: linear-gradient(to right, #ff00cc, #3333cc);
-    /* เปลี่ยนสีพื้นหลังตรงนี้ */
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: 0 0 10px rgb(86, 60, 92);
-}
 
 .con-item {
     display: grid;
@@ -228,7 +133,6 @@ body {
     z-index: 100;
     width: 300px;
     height: 200px;
-    background-image: url(haechan.jpeg);
     background-size: cover;
     border-radius: 12px;
     filter: grayscale(100%);
@@ -298,12 +202,17 @@ body {
 /* footer */
 footer {
     padding: 1%;
-    margin-top: 10%;
-    background: linear-gradient(135deg,
-            rgba(14, 57, 70, 0.973)0%,
-            rgb(56, 14, 54)100%),
-        linear-gradient(to right, rgb(174, 174, 250) 0%, rgb(55, 9, 55) 100%);
-    box-shadow: inset 0 0 100px hsla(0, 0%, 0%, 0.3);
+    margin-top: 20%;
+background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.973) 0%,
+            rgb(255, 255, 255) 100%
+        ),
+        linear-gradient(
+            to right,
+            rgb(255, 255, 255) 0%,
+            rgb(255, 255, 255) 100%
+        );    box-shadow: inset 0 0 100px hsla(0, 0%, 0%, 0.3);
     font-family: "Popins", sans-serif;
     box-shadow: 2px 0px 50px 1px rgba(0, 0, 0, 0.444);
 }
@@ -330,30 +239,27 @@ footer {
     /* background-color: #88BFB5; */
     padding: 5%;
     margin-left: 100px;
-
 }
 
 .footer-1 {
-    /* background-color: #57752b; */
-    padding: 5%;
-    color: #000000;
-    box-shadow: 2px 0px 50px 1px rgba(9, 9, 9, 0.142);
+    background: linear-gradient(45deg, #482657, #501b73, #316a71, #53cd27);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .footer-2 {
-    /* background-color: #57752b; */
-    padding: 5%;
-    list-style-type: none;
-    color: #000000;
-    box-shadow: 2px 0px 50px 1px rgba(9, 9, 9, 0.142);
+    background: linear-gradient(45deg, #482657, #501b73, #316a71, #53cd27);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .footer-3 {
-    /* background-color: #57752b; */
-    padding: 5%;
-    list-style-type: none;
-    color: #000000;
-    box-shadow: 2px 0px 50px 1px rgba(9, 9, 9, 0.142);
+    background: linear-gradient(45deg, #482657, #501b73, #316a71, #53cd27);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .foot-text {
@@ -361,15 +267,18 @@ footer {
 }
 
 .foot-text:hover {
-    color: #ffffff;
+    color: #a69cff;
 }
 
 .text-main {
-    color: #000000;
+    background: linear-gradient(45deg, #6c2069, #fe57f6, #60720e, #cdc227);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .text-main:hover {
-    color: #ffffff;
+    color: #78378a;
 }
 
 .foot-img {
@@ -462,6 +371,10 @@ footer {
     left: 18px;
     position: absolute;
     color: #010a08;
+    background: linear-gradient(45deg, #24206c, #3a075f, #0e2272, #cdc227);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .link-title {

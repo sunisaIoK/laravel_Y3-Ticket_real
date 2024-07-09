@@ -63,7 +63,6 @@ body {
     margin-top: -1%;
     height: 200px;
     display: flex;
-
     flex-direction: column; /* จัดเรียงองค์ประกอบในแนวตั้ง */
     align-items: center; /* จัดกึ่งกลางองค์ประกอบในแนวนอน */
     padding: 2%;

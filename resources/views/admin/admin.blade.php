@@ -16,33 +16,27 @@
 </head>
 
 <body>
-
     <!-- Scrollable modal -->
-    <a href="{{ url('login') }}" style="color: wheat">Logout</a>
-    <div class="content">
-        <p class="text-end"><a href="{{ url('Customer') }}" class="btn btn-dark">แสดงข้อมูลลูกค้า</a></p>
+    <div class="content"
+        style=" box-shadow: inset 0 0 100px hsla(0, 0%, 0%, 0.3);
+    box-shadow: 2px 0px 50px 1px rgba(0, 0, 0, 0.444);">
+        <p class="text-end"><a href="{{ url('Customer') }}" class="btn btn-dark" style="margin-top: 3%">แสดงข้อมูลลูกค้า</a></p>
         <p class="text-end"><a href="{{ url('createcon') }}" class="btn btn-dark">เพิ่มconcert</a></p>
         <h1 class="text-head">Admin</h1>
-        {{-- @if (session('admin'))
-            <p>Welcome, {{ session('admin')->name }}</p>
-            <p>Email: {{ session('admin')->email }}</p>
-            <!-- แสดงข้อมูลอื่น ๆ ของ admin ตามที่ต้องการ -->
-        @else
-            <p style=" margin-left:50px; margin-top: 10px; color:rgb(0, 0, 0);">{{ session('loginId') }}</p>
-        @endif --}}
-        <div class="item">
-            <div class="con-item">
-                @foreach ($users as $user)
-                    <div class="c-item">
-                        <h2 style="font-size: 20px">{{ $user->concertname }}</h2>
-                        <p>{{ $user->detail }}</p>
-                        <span>{{ $user->artist }}</span>
-                        <div class="pic" style="background-image: url('{{ url('images/' . $user->imagecon) }}');">
-                        </div>
-                        <a class="button" href="/shop"></a>
+        <a href="{{ url('login') }}" class="Logout">Logout</a>
+    </div>
+    <div class="item">
+        <div class="con-item">
+            @foreach ($users as $user)
+                <div class="c-item">
+                    <h2 style="font-size: 20px">{{ $user->concertname }}</h2>
+                    <p>{{ $user->detail }}</p>
+                    <span>{{ $user->artist }}</span>
+                    <div class="pic" style="background-image: url('{{ url('images/' . $user->imagecon) }}');">
                     </div>
-                @endforeach
-            </div>
+                    <a class="button" href="/shop"></a>
+                </div>
+            @endforeach
         </div>
     </div>
     </div>
