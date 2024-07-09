@@ -11,17 +11,17 @@ class datacon extends Model
     // app/TableName.php
 
     // ตัวอย่างความสัมพันธ์ belongsTo กับอีก Model
-    public function relatedModel()
-    {
-        return $this->Order(Admin::class);
-    }
-
     protected $fillable = [
-        'concertname', 'artist', 'mapzone', 'rateprice', 'datecon', 'detail', 'categories_id', 'imagecon', 'imagemap',
+        'concertname', 'artist', 'mapzone', 'rateprice', 'detail', 'category_id', 'imagecon', 'imagemap',
     ];
 
     public function category()
     {
-        return $this->belongsTo(Category::class, 'categories_id');
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function zones()
+    {
+        return $this->hasMany(Zone::class);
     }
 }
