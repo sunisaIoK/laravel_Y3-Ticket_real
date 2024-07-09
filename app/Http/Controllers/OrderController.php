@@ -9,28 +9,36 @@ use App\Models\Admin;
 use App\Models\categories;
 use App\Models\Category;
 use App\Models\datacon;
+use App\Models\Zone;
 use PDF;
 
 class OrderController extends Controller
 {
+    // สั่งซื้อ
     public function Order(Request $request)
     {
-        $user = new Order();
-        $user->concertname = $request->concertname;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->zone = $request->ZONE;
-        $user->count = $request->count;
-        $user->price = $request->price;
-        $user->date = $request->exp_date;
-        $answer = $user->save();
-        if ($answer) {
+        // ดึงข้อมูล zone name จาก zones table
+        $zone = Zone::findOrFail($request->zone_id);
+
+        // Create a new order entry
+        $order = new Order();
+        $order->concertname = $request->concertname;
+        $order->name = $request->name;
+        $order->email = $request->email;
+        $order->zone = $zone->zone_name; // ใช้ zone_name จาก zones table
+        $order->count = $request->count;
+        $order->price = $request->total;
+        $order->date = $request->exp_date;
+
+        // Save the order
+        if ($order->save()) {
             return back()->with('success', 'การจองสำเร็จ');
         } else {
-            return
-                back()->with('fail', 'การจองผิดพลาด');
+            return back()->with('fail', 'การจองผิดพลาด');
         }
     }
+
+
     public function createcon()
     {
         // ดึงหมวดหมู่ทั้งหมดจากฐานข้อมูล

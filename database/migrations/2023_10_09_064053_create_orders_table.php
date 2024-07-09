@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('zone');
-            $table->string('count');
-            $table->string('price');
-            $table->string('date');
+            $table->integer('count');
+            $table->decimal('price', 10, 2);
+            $table->date('date');
             $table->timestamps();
         });
     }
