@@ -12,7 +12,7 @@
 
 <body  class="container">
     <div>
-        <div class="card" style="background-color: #03011f9d;">
+        <div class="card" style="background-color: #03011f26;">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div>

@@ -6,13 +6,14 @@ body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    /* background: linear-gradient(245.59deg, #0a0836 0%, #203449 50.53%, #490951 85.52%); */
+    background: linear-gradient(245.59deg, #0a0836 0%, #203449 50.53%, #490951 85.52%);
 }
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 10%;
+
 }
 
 .card {
@@ -21,7 +22,7 @@ body {
     width: 550px;
     margin-left: 50px;
     margin-bottom: 15%;
-    background-color: #0a0836;
+    background-color: #490951;
     /* box-shadow: inset 10px 30px  100px hsla(309, 41%, 22%, 0.951); */
 }
 .card label{
@@ -55,7 +56,7 @@ body {
 }
 button {
     background: linear-gradient(#d0eaff82 40%, #ffffffce) 100%;
-    color: #ffffff;
+    color: #242446;
 }
 button:hover {
     background: linear-gradient(#608fb582 40%, #ffffff) 100%;
