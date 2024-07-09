@@ -108,7 +108,7 @@ class OrderController extends Controller
                 'rateprice' => 'required|numeric',
                 // 'datecon' => 'required|date',
                 'detail' => 'required|string',
-                'categories' => 'required|exists:categories,id',
+                'category_id' => 'required|exists:categories,id',
                 'imagecon' => 'required|image',
                 'imagemap' => 'required|image',
             ]);
@@ -119,7 +119,7 @@ class OrderController extends Controller
             $rateprice = $request->rateprice;
             // $datecon = $request->datecon;
             $detail = $request->detail;
-            $category_id = $request->categories;
+            $category_id = $request->category_id;
             // Handle the imagecon file upload
             if ($request->hasFile('imagecon')) {
                 $file = $request->file('imagecon');

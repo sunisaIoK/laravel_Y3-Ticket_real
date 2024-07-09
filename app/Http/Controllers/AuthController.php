@@ -84,8 +84,8 @@ class AuthController extends Controller
                 $request->session()->put('loginId', $user->name);
                 $request->session()->put('loginimage', $user->profileimage);
 
-                if ($user->email == 'admin@gmail.com' && Hash::check('87654321', $user->password)) {
-                    
+                if ($user->email == 'admin@gmail.com' && Hash::check('password', $user->password)) {
+
                     return redirect('Admin');
                 } else {
                     $request->session()->put('userRole', 'user');

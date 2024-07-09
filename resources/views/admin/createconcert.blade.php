@@ -38,40 +38,40 @@
                                     {{ session('error') }}
                                 </div>
                             @endif
-
                             <form action="{{ route('add.data') }}" enctype="multipart/form-data" method="POST"
                                 style="position:relative">
                                 @csrf
                                 <p>หมวดหมู่</p>
-                                <select name="categories" class="form-control" required>
+                                <select name="category_id" class="form-control" required>
                                     <option value="">-- เลือกหมวดหมู่ --</option>
-                                    @foreach ($categories as $categories)
-                                        <option value="{{ $categories->id }}">{{ $categories->name }}</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
                                 </select>
-                                <p>Concert Name</p>
-                                <input type="text" class="form-control" name="concertname" />
-                                <p>Artist</p>
-                                <input type="text" class="form-control" name="artist" />
-                                <p>Zone</p>
+                                <p>ชื่อคอนเสิร์ต</p>
+                                <input type="text" class="form-control" name="concertname" required />
+                                <p>ศิลปิน</p>
+                                <input type="text" class="form-control" name="artist" required />
+                                <p>โซน</p>
                                 <input type="text" class="form-control" name="mapzone" required />
-                                <p>Rate Price</p>
-                                <input type="text" class="form-control" name="rateprice" required />
-                                <p>Detail</p>
-                                <input type="text" class="form-control" name="detail" required />
-                                <p class="expcvv_text">Date</p>
-                                <input type="Text" class="form-control" name="datecon" id="exp_date" required />
+                                <p>ราคาตั๋ว</p>
+                                <input type="number" step="0.01" class="form-control" name="rateprice" required />
+                                <p>รายละเอียด</p>
+                                <textarea class="form-control" name="detail" required></textarea>
                                 <div class="form-group"><br>
-                                    <label for="file">Choose Concert Image</label>
+                                    <label for="imagecon">เลือกภาพคอนเสิร์ต</label>
                                     <input type="file" name="imagecon" class="form-control">
                                 </div>
                                 <div class="form-group"><br>
-                                    <label for="file">Choose Map Concert</label>
+                                    <label for="imagemap">เลือกแผนที่คอนเสิร์ต</label>
                                     <input type="file" name="imagemap" class="form-control">
                                 </div>
                                 <br>
-                                <button type="submit" class="btn ">Submit</button>
+                                <button type="submit" class="btn">ยืนยัน</button>
                             </form>
+
+
+
                         </div>
                     </div>
                 </div>
