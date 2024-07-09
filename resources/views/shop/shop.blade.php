@@ -37,6 +37,9 @@
                             <td>{{ $purchase->price }}</td>
                             <td>{{ $purchase->date }}</td>
                             <td>{{ $purchase->created_at }}</td>
+                            
+                            <a href="{{ route('receipts.show', ['orderId' => $purchase->id]) }}">View Receipt</a>
+                                <!-- ลิงก์ไปยังหน้าใบเสร็จ -->
                         </tr>
                     @endforeach
                 </tbody>

@@ -102,6 +102,8 @@ Route::controller(OrderController::class)->group(function () {
 Route::controller(ShopController::class)->group(function(){
     Route::get('/shop/{id}', 'buyTicket')->name('buyTicket');
     Route::get('/history', 'History')->name('shop.history');
+    Route::get('/receipt/{orderId}','showReceipt')->name('receipts.show');
+Route::get('/receipt/{orderId}/download','downloadReceipt')->name('receipts.download');
 });
 
 Route::controller(PDFController::class)->group(function () {

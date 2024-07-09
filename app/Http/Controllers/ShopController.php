@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\datacon;
 use App\Models\Order;
 use App\Models\User;
+use PDF;
 
 use App\Models\purchase;
 
@@ -40,6 +41,28 @@ class ShopController extends Controller
 
         // ส่งข้อมูลการซื้อไปยัง View
         return view('shop.shop', compact('purchases'));
+    }
+
+
+     public function showReceipt($orderId)
+    {
+        // ดึงข้อมูลการสั่งซื้อจากฐานข้อมูล
+        $order = Order::findOrFail($orderId);
+
+        // ส่งข้อมูลไปยัง View
+        return view('shop.receipt', compact('order'));
+    }
+
+    public function downloadReceipt($orderId)
+    {
+        // ดึงข้อมูลการสั่งซื้อจากฐานข้อมูล
+        $order = Order::findOrFail($orderId);
+
+        // สร้าง PDF จาก View
+        $pdf = PDF::loadView('shop.receipt', compact('order'));
+
+        // ดาวน์โหลด PDF
+        return $pdf->download('receipt.pdf');
     }
 }
 
