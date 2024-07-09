@@ -100,7 +100,8 @@ class AuthController extends Controller
 
         if ($user) {
             // ตรวจสอบรหัสผ่านในตาราง users
-            if (Hash::check($request->password, $user->password)) {
+            if ($user&&Hash::check($request->password, $user->password)) {
+                session(['user' => $user]);
                 $request->session()->put('loginId', $user->name);
                 $request->session()->put('loginimage', $user->profileimage);
                 $request->session()->put('userRole', 'user');

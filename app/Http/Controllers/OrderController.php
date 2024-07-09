@@ -22,13 +22,22 @@ class OrderController extends Controller
 
         // Create a new order entry
         $order = new Order();
-        $order->concertname = $request->concertname;
-        $order->name = $request->name;
-        $order->email = $request->email;
-        $order->zone = $zone->zone_name; // ใช้ zone_name จาก zones table
-        $order->count = $request->count;
-        $order->price = $request->total;
-        $order->date = $request->exp_date;
+        // $order->concertname = $request->concertname;
+        // $order->name = $request->name;
+        // $order->email = $request->email;
+        // $order->zone = $zone->zone_name; // ใช้ zone_name จาก zones table
+        // $order->count = $request->count;
+        // $order->price = $request->total;
+        // $order->date = $request->exp_date;
+        // $order = new Order();
+    $order->concertname = $request->input('concertname');
+    $order->name = $request->input('name');
+    $order->email = $request->input('email');
+    $order->zone = $request->input('zone_id');
+    $order->count = $request->input('count');
+    $order->price = $request->input('total'); // ต้องเป็นตัวเลข เช่น 4000.00
+    $order->date = $request->input('date');
+    $order->save();
 
         // Save the order
         if ($order->save()) {
@@ -197,7 +206,6 @@ class OrderController extends Controller
         // ดึงข้อมูลคอนเสิร์ตที่เร็วๆ นี้ (category_id = 2)
         $upcomingConcerts = datacon::where('category_id', 2)->get();
         $MusicFestival = datacon::where('category_id', 3)->get();
-        
         return view('user.index', compact('bookedNowConcerts', 'upcomingConcerts','MusicFestival'));
     }
 

@@ -16,6 +16,11 @@ class User extends Model
         'name', 'email', 'password', 'profile_image', // เพิ่ม 'profile_image' ใน $fillable
     ];
 
+    public function purchases()
+    {
+        return $this->hasMany(Purchase::class);
+    }
+
     protected $fillable = [
         'name',
         'email',

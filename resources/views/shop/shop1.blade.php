@@ -43,12 +43,8 @@
     <div class="price">
         <p>User Name</p>
         <div class="">
-            <input type="text" name="name" class="inputbox" placeholder="" required>
-            <span class="text-danger">
-                @error('name')
-                    {{ $message }}
-                @enderror
-            </span>
+            <h1>{{ $Username->name }}</h1>
+            <input type="hidden" name="name" value="{{ $Username->name }}">
         </div>
         <p>Email</p>
         <div class="">
@@ -102,9 +98,9 @@
     </div>
     <div class="expcvv">
         <p class="expcvv_text">วันที่จอง</p>
-        <input type="date" class="inputbox2" name="exp_date" id="exp_date" required />
+        <input type="date" class="inputbox2" name="date" id="date" required />
         <span class="text-danger">
-            @error('exp_date')
+            @error('date')
                 {{ $message }}
             @enderror
         </span>
@@ -132,8 +128,8 @@ function updateTotal() {
     const count = parseInt(countSelect.value) || 0;
 
     const total = price * count;
-    priceElement.textContent = price + ' บาท';
-    totalElement.value = total + ' บาท';
+    priceElement.textContent = price;
+    totalElement.value = total ;
 }
 </script>
 
@@ -141,14 +137,14 @@ function updateTotal() {
                     document.getElementById('ZONE').addEventListener('change', function() {
                         const selectedOption = this.options[this.selectedIndex];
                         const price = selectedOption.getAttribute('data-price');
-                        document.getElementById('price').textContent = price + ' บาท';
+                        document.getElementById('price').textContent = price ;
                     });
                 </script>
                 <script>
                     document.getElementById('ZONE').addEventListener('change', function() {
                         const selectedOption = this.options[this.selectedIndex];
                         const price = selectedOption.getAttribute('data-price');
-                        document.getElementById('price').textContent = price + ' บาท';
+                        document.getElementById('price').textContent = price ;
                     });
                 </script>
                 <div class="text-center">
@@ -176,8 +172,8 @@ function updateTotal() {
         const count = parseInt(countSelect.value) || 0;
 
         const total = price * count;
-        priceElement.textContent = price + ' บาท';
-        totalElement.value = total + ' บาท';
+        priceElement.textContent = price ;
+        totalElement.value = total ;
     }
 
     document.getElementById('ZONE').addEventListener('change', calculateTotalPrice);

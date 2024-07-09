@@ -57,6 +57,7 @@
 </header>
 
 <body>
+
     <div class="text-slide" style="text-align: center">
         <h1>Enjoy your time here</h1>
         <h3>รับจองบัตรคอนเสิร์ตจากทั่วทุกมุมโลกา</h3>

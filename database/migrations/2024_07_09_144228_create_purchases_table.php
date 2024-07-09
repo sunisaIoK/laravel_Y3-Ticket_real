@@ -13,14 +13,7 @@ return new class extends Migration
     {
         Schema::create('purchases', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('concert_id');
-            $table->timestamp('purchase_date')->useCurrent();
-            $table->decimal('amount', 8, 2);
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('concert_id')->references('id')->on('datacons')->onDelete('cascade');
         });
     }
 

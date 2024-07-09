@@ -101,6 +101,7 @@ Route::controller(OrderController::class)->group(function () {
 
 Route::controller(ShopController::class)->group(function(){
     Route::get('/shop/{id}', 'buyTicket')->name('buyTicket');
+    Route::get('/history', 'History')->name('shop.history');
 });
 
 Route::controller(PDFController::class)->group(function () {
@@ -115,7 +116,7 @@ Route::controller(CategoryController::class)->group(function () {
     Route::get('/idex', 'index');
 });
 
-
+// Route::post('/admin', [AdminController::class, 'handleAdmin'])->name('admin.handle');
 
 
 
