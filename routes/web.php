@@ -13,6 +13,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ZoneController;
 use App\Models\Order;
 use Barryvdh\DomPDF\PDF;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,16 +38,21 @@ Route::controller(AuthController::class)->group(function () {
 
 
     Route::get('login', 'login');//->middleware('NowLogin');
-    Route::post('/admin', 'loginUser')->name('admin.admin');
+    Route::post('/admin', 'loginUser')->name('login');
 
      Route::get('index', 'index');//->middleware('CheckLogin')
     Route::get('logout', 'logout');
     Route::get('home', 'home');
     Route::get('home', 'home');
 
-
-
     //Route::get('User-index', 'user');
+});
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/Admin', [AuthController::class, 'loginUser'])->name('admin');
+});
+
+Route::middleware(['auth', 'role:user'])->group(function () {
+    Route::get('/index', [AuthController::class, 'loginUser'])->name('user');
 });
 
 Route::controller(IndexController::class)->group(function () {

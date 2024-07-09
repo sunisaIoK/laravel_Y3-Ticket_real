@@ -72,29 +72,46 @@ class AuthController extends Controller
 
     public function loginUser(Request $request)
     {
+
         $request->validate([
             'email' => 'required|email',
             'password' => 'required|min:8',
         ]);
 
-        $user = User::where('email', '=', $request->email)->first();
+        // ตรวจสอบในตาราง Admin ก่อน
+        // ตรวจสอบในตาราง users
+        // ตรวจสอบในตาราง admins ก่อน
+        $admin = Admin::where('email', $request->email)->first();
+
+        if ($admin) {
+            // ตรวจสอบรหัสผ่านในตาราง admins
+            if (Hash::check($request->password, $admin->password)) {
+                $request->session()->put('loginId', $admin->id);
+                $request->session()->put('loginimage', $admin->profileimage);
+                $request->session()->put('userRole', 'admin');
+                return redirect('Admin');
+            } else {
+                return back()->with('fail', 'Password does not match for admin');
+            }
+        }
+
+        // ถ้าไม่พบในตาราง admins ให้ตรวจสอบในตาราง users
+        $user = User::where('email', $request->email)->first();
 
         if ($user) {
+            // ตรวจสอบรหัสผ่านในตาราง users
             if (Hash::check($request->password, $user->password)) {
                 $request->session()->put('loginId', $user->name);
                 $request->session()->put('loginimage', $user->profileimage);
-                if ($user->email == 'admin@gmail.com' && Hash::check('password', $user->password)) {
-                    return redirect('Admin');
-                } else {
-                    $request->session()->put('userRole', 'user');
-                    return redirect('index');
-                }
+                $request->session()->put('userRole', 'user');
+                return redirect('index');
             } else {
-                return back()->with('fail', 'Password does not match');
+                return back()->with('fail', 'Password does not match for user');
             }
-        } else {
-            return back()->with('fail', 'This email is not registered');
         }
+
+        // ถ้าไม่พบทั้งในตาราง admins และ users
+        return back()->with('fail', 'This email is not registered');
     }
 
 

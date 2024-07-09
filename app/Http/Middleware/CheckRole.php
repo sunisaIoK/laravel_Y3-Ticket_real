@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Session;
 
 class CheckRole
 {
@@ -13,12 +14,14 @@ class CheckRole
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle($request, Closure $next, $role = null)
     {
-        if (!Session()->has('loginId')) {
+        $userRole = Session::get('userRole');
 
-            return redirect('Addmin');
+        if ($userRole !== $role) {
+            return redirect()->back()->with('error', 'คุณไม่มีสิทธิ์เข้าถึงหน้านี้');
         }
+
         return $next($request);
     }
 }

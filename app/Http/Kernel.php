@@ -56,6 +56,7 @@ class Kernel extends HttpKernel
         'CheckLogin' => \App\Http\Middleware\CheckLogin::class,
         'NowLogin' => \App\Http\Middleware\NowLogin::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
+        'role' => \App\Http\Middleware\CheckRole::class,
         'CheckRole' => \App\Http\Middleware\CheckRole::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
