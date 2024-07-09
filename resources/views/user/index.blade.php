@@ -41,15 +41,15 @@
             <div class="path" style="padding-top: 5%;">
                 <a href="/index" class="text" style="font-size: 30px">Book Now</a>
                 <a href="#" class="text2" style="font-size: 26px">Comming soon</a>
-                @foreach ($profiles as $profile)
-                    <img src="{{ url('image/' . $profile->profileimage) }}" alt="" class="img-item1"
+                @foreach ($upcomingConcerts as $profile)
+                    <img src="{{ url('imageUser/' . $profile->profileimage) }}" alt="" class="img-item1"
                         style="width: 50px;margin-top:1px;" class="name">
                 @endforeach
                 <div>
                     <a href="/profileUser/" class="n-t" style="text-decoration: none;">
                         <h1>{{ session('loginId') }}</h1>
                     </a>
-                    @foreach ($profiles as $profile)@endforeach
+                    @foreach ($upcomingConcerts as $profile)@endforeach
                 </div>
             </div>
         </div>
@@ -65,7 +65,41 @@
         <div class="item">
             <h1>Booked Now</h1>
             <div class="con-item">
-                @foreach ($profiles as $concert)
+                @foreach ($bookedNowConcerts as $concert)
+                    <div class="c-item">
+                        <h2 style="font-size: 20px">{{ $concert->concertname }}</h2>
+                        <p>{{ $concert->detail }}</p>
+                        <span>{{ $concert->artist }}</span>
+                        <div class="pic" style="background-image: url('{{ url('images/' . $concert->imagecon) }}');">
+                        </div>
+                        <a class="button" href="{{ route('buyTicket', ['id' => $concert->id]) }}">Buy Ticket</a>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="item">
+            <h1>คอนเสิร์ตใหญ่ เร็วๆนี้</h1>
+            <div class="con-item">
+                @foreach ($upcomingConcerts as $concert)
+                    <div class="c-item">
+                        <h2 style="font-size: 20px">{{ $concert->concertname }}</h2>
+                        <p>{{ $concert->detail }}</p>
+                        <span>{{ $concert->artist }}</span>
+                        <div class="pic" style="background-image: url('{{ url('images/' . $concert->imagecon) }}');">
+                        </div>
+                        <a class="button" href="{{ route('buyTicket', ['id' => $concert->id]) }}">Buy Ticket</a>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="item">
+            <h1>เทศกาลดนตรี เร็วๆนี้</h1>
+            <div class="con-item">
+                @foreach ($MusicFestival as $concert)
                     <div class="c-item">
                         <h2 style="font-size: 20px">{{ $concert->concertname }}</h2>
                         <p>{{ $concert->detail }}</p>

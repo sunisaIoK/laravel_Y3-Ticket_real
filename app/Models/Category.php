@@ -10,6 +10,11 @@ class Category extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name', 'slug', 'status', 'type'
+    ];
+
+
     public function datacon()
     {
         return $this->hasMany(datacon::class, 'category_id');

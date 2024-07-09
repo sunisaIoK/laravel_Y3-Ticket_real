@@ -10,6 +10,8 @@ class datacon extends Model
     use HasFactory;
     // app/TableName.php
 
+     protected $table = 'datacons';
+     
     // ตัวอย่างความสัมพันธ์ belongsTo กับอีก Model
     protected $fillable = [
         'concertname', 'artist', 'mapzone', 'rateprice', 'detail', 'category_id', 'imagecon', 'imagemap',

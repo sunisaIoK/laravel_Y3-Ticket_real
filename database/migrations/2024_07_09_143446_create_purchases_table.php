@@ -11,14 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('datacons', function (Blueprint $table) {
+        Schema::create('purchases', function (Blueprint $table) {
             $table->id();
-            $table->string('concertname');
-            $table->string('artist');
-            $table->text('detail');
-            $table->string('imagecon')->nullable();
-            $table->string('imagemap')->nullable();
-            $table->unsignedBigInteger('category_id');
             $table->timestamps();
         });
     }
@@ -28,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('datacons');
+        Schema::dropIfExists('purchases');
     }
 };

@@ -104,61 +104,6 @@ class OrderController extends Controller
             return back()->with('error', 'Data not found');
         }
     }
-    // เพิ่มข้อมูล
-    // public function adddatacon(Request $request)
-    // {
-    //     try {
-    //         // Validate the incoming request data
-    //         $request->validate([
-    //             'concertname' => 'required|string|max:255',
-    //             'artist' => 'required|string|max:255',
-    //             'mapzone' => 'required|string|max:255',
-    //             'rateprice' => 'required|numeric',
-    //             // 'datecon' => 'required|date',
-    //             'detail' => 'required|string',
-    //             'category_id' => 'required|exists:categories,id',
-    //             'imagecon' => 'required|image',
-    //             'imagemap' => 'required|image',
-    //         ]);
-    //         // Assign the validated data to variables
-    //         $concertname = $request->concertname;
-    //         $artist = $request->artist;
-    //         $mapzone = $request->mapzone;
-    //         $rateprice = $request->rateprice;
-    //         // $datecon = $request->datecon;
-    //         $detail = $request->detail;
-    //         $category_id = $request->category_id;
-    //         // Handle the imagecon file upload
-    //         if ($request->hasFile('imagecon')) {
-    //             $file = $request->file('imagecon');
-    //             $imageconname = time() . '.' . $file->getClientOriginalExtension();
-    //             $file->move(public_path('images'), $imageconname);
-    //         }
-    //         // Handle the imagemap file upload
-    //         if ($request->hasFile('imagemap')) {
-    //             $file = $request->file('imagemap');
-    //             $imagemapname = time() . '.' . $file->getClientOriginalExtension();
-    //             $file->move(public_path('image'), $imagemapname);
-    //         }
-    //         // Create a new datacons entry
-    //         $user = new datacon();
-    //         $user->concertname = $concertname;
-    //         $user->artist = $artist;
-    //         $user->mapzone = $mapzone;
-    //         $user->rateprice = $rateprice;
-    //         // $user->datecon = $datecon;
-    //         $user->detail = $detail;
-    //         $user->category_id = $category_id; // Save the categories_id
-    //         $user->imagecon = $imageconname ?? null; // Save the imagecon file name
-    //         $user->imagemap = $imagemapname ?? null; // Save the imagemap file name
-    //         $user->save();
-    //         // Return back with a success message
-    //         return back()->with('status', 'Data saved successfully');
-    //     } catch (\Exception $e) {
-    //         // Return back with an error message
-    //         return back()->with('error', 'An error occurred: ' . $e->getMessage());
-    //     }
-    // }
     public function adddatacon(Request $request)
     {
         try {
@@ -246,8 +191,14 @@ class OrderController extends Controller
 
     public function showConcerts()
     {
-        $profiles = datacon::all();
-        return view('user.index', compact('profiles'));
+        // ดึงข้อมูลคอนเสิร์ตที่ขายอยู่ตอนนี้ (category_id = 1)
+        $bookedNowConcerts = datacon::where('category_id', 1)->get();
+
+        // ดึงข้อมูลคอนเสิร์ตที่เร็วๆ นี้ (category_id = 2)
+        $upcomingConcerts = datacon::where('category_id', 2)->get();
+        $MusicFestival = datacon::where('category_id', 3)->get();
+        
+        return view('user.index', compact('bookedNowConcerts', 'upcomingConcerts','MusicFestival'));
     }
 
 

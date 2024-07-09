@@ -11,6 +11,8 @@ use App\Http\Controllers\PDFController;
 use App\Http\Controllers\BarController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ZoneController;
+use App\Http\Controllers\CategoryController;
+use App\Models\Category;
 use App\Models\Order;
 use Barryvdh\DomPDF\PDF;
 use Illuminate\Support\Facades\Auth;
@@ -108,6 +110,12 @@ Route::controller(PDFController::class)->group(function () {
 Route::controller(AdminpdfController::class)->group(function () {
     Route::get('/confi', 'PDFdownload')->name('admin.download');
 });
+
+Route::controller(CategoryController::class)->group(function () {
+    Route::get('/idex', 'index');
+});
+
+
 
 
 
