@@ -22,7 +22,7 @@ class ProfileController extends Controller
         $password = $request->password;
         $image = $request->file('file');
         $imagename = time() . '.' . $image->extension();
-        $image->move(public_path('images'), $imagename);
+        $image->move(public_path('imageUser'), $imagename);
 
         //บันทึกข้อมูลลงตาราง
         $pro = new User();
@@ -75,7 +75,7 @@ class ProfileController extends Controller
         $image = $request->file('file');
         //ถ้าแก้ไขต้องเปลี่ยนรูปด้วย
         $imagename = time() . '.' . $image->extension();
-        $image->move(public_path('image'), $imagename);
+        $image->move(public_path('imageUser'), $imagename);
 
         $profile = User::find($request->id);
         $profile->name = $name;
