@@ -19,7 +19,7 @@
                 <img src="{{ asset('photo/logo.png') }}" alt="" width="400px">
             </a>
             <div class="col" style="padding-top: 5%;">
-                <a href="{{ url('index') }}" class="text" style="font-size: 23px">Home</a>
+                <a href="{{ url('index') }}" class="text" style="font-size: 23px">PAGE</a>
                 <a href="/profileUser/" class="n-t" style="text-decoration: none;">
                     @foreach ($profiles as $profile)
                         <img src="{{ url('imageUser/' . $profile->profileimage) }}" alt="" class="img-item1"

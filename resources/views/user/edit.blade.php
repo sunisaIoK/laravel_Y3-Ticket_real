@@ -15,10 +15,7 @@
                     <img src="{{ asset('photo/logo.png') }}" alt="" width="400px">
                 </a>
                     <div class="col" style="padding-top: 5%;">
-                        <a href="/index" class="text" style="font-size: 23px">Home</a>
-                        <a href="#" class="text2" style="font-size: 23px">Concert</a>
-                        <a href="#" class="text3" style="font-size: 23px">About Us</a>
-                        <a href="#" class="text4" style="font-size: 23px">Contact</a>
+                        <a href="/index" class="text" style="font-size: 23px">PAGE</a>
                     </div>
                     </div>
             </div>

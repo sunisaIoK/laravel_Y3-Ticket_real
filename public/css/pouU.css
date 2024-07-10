@@ -221,11 +221,6 @@ body {
 /* container edit */
 .container-edit {
     color: rgb(255, 255, 255);
-    background: linear-gradient(
-        135deg,
-        rgba(93, 4, 96, 0.973) 0%,
-        rgba(28, 12, 44, 0.973) 100%
-    );
     width: 500px;
     text-align: center;
     margin-top: 20px;
@@ -238,12 +233,11 @@ body {
 
 .btn-b:hover {
     font-family: "Popins", sans-serif;
-    font-size: 25px;
     color: rgb(255, 255, 255);
     background: linear-gradient(
         135deg,
-        rgba(255, 255, 255, 0.973) 0%,
-        rgba(4, 144, 114, 0.973) 100%
+        rgba(159, 67, 209, 0.973) 0%,
+        rgba(23, 26, 216, 0.973) 100%
     );
 }
 
@@ -258,7 +252,7 @@ body {
     background: linear-gradient(
             135deg,
             rgba(135, 102, 255, 0.973) 0%,
-            rgba(0, 0, 0, 0.973) 100%
+            rgba(194, 140, 200, 0.973) 100%
         ),
         linear-gradient(
             to right,
@@ -269,12 +263,11 @@ body {
 }
 .btn-d:hover {
     font-family: "Popins", sans-serif;
-    font-size: 23px;
     color: rgb(255, 255, 255);
     background: linear-gradient(
         135deg,
-        rgba(93, 4, 96, 0.973) 0%,
-        rgba(255, 0, 0, 0.973) 100%
+        rgba(102, 214, 233, 0.973) 0%,
+        rgba(41, 98, 133, 0.973) 100%
     );
 }
 
@@ -288,8 +281,8 @@ body {
     margin-top: 5%;
     background: linear-gradient(
             135deg,
-            rgb(0, 255, 89) 0%,
-            rgba(11, 90, 48, 0.973) 100%
+            rgb(29, 78, 153) 0%,
+            rgba(11, 62, 90, 0.973) 100%
         ),
         linear-gradient(
             to right,

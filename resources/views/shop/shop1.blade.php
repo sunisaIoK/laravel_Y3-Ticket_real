@@ -16,7 +16,7 @@
     <div class="navbar" style="height: 200px">
         <div class="nav">
             <div class="col" style="padding-top: 5%;">
-                <a href="/index" class="text" style="font-size: 23px">Home</a>
+                <a href="/index" class="text" style="font-size: 23px">PAGE</a>
             </div>
 </header>
 
