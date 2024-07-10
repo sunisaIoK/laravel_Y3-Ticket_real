@@ -170,7 +170,18 @@ class OrderController extends Controller
     public function adminprofile()
     {
         $users = datacon::all();
-        return view('admin.admin', compact('users'));
+        // ดึงข้อมูลคอนเสิร์ตที่ขายอยู่ตอนนี้ (category_id = 1)
+        $bookedNowConcerts = datacon::where('category_id', 1)->get();
+
+        // ดึงข้อมูลคอนเสิร์ตที่เร็วๆ นี้ (category_id = 2)
+        $upcomingConcerts = datacon::where('category_id', 2)->get();
+        $MusicFestival = datacon::where('category_id', 3)->get();
+
+        // ดึงข้อมูลผู้ใช้จาก session ถ้ามี
+        $userProfile = session('profile');
+        $user = User::find(session('loginId')); // Assuming 'loginId' is the user's id
+
+        return view('admin.admin', compact('bookedNowConcerts', 'upcomingConcerts','MusicFestival',));
     }
     //  ดึงขอมูลไปโชว์แบบเช็คหมวดหมู่
 

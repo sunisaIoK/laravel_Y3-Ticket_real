@@ -26,8 +26,39 @@
         <a href="{{ url('login') }}" class="Logout">Logout</a>
     </div>
     <div class="item">
+        <h1>เปิดขายอยู่ตอนนี้</h1>
         <div class="con-item">
-            @foreach ($users as $user)
+            @foreach ($bookedNowConcerts as $user)
+                <div class="c-item">
+                    <h2 style="font-size: 20px">{{ $user->concertname }}</h2>
+                    <p>{{ $user->detail }}</p>
+                    <span>{{ $user->artist }}</span>
+                    <div class="pic" style="background-image: url('{{ url('images/' . $user->imagecon) }}');">
+                    </div>
+                    <a class="button" href="/shop"></a>
+                </div>
+            @endforeach
+        </div>
+    </div>
+        <div class="item">
+            <h1>คอนเสิร์ตใหญ่ เร็วๆนี้</h1>
+            <div class="con-item">
+                @foreach ($upcomingConcerts as $concert)
+                    <div class="c-item">
+                        <h2 style="font-size: 20px">{{ $concert->concertname }}</h2>
+                        <p>{{ $concert->detail }}</p>
+                        <span>{{ $concert->artist }}</span>
+                        <div class="pic" style="background-image: url('{{ url('images/' . $concert->imagecon) }}');">
+                        </div>
+                        <a class="button" href="{{ route('buyTicket', ['id' => $concert->id]) }}">Buy Ticket</a>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    <div class="item">
+        <h1>เทศกาลดนตรี เร็วๆนี้</h1>
+        <div class="con-item">
+            @foreach ($MusicFestival as $user)
                 <div class="c-item">
                     <h2 style="font-size: 20px">{{ $user->concertname }}</h2>
                     <p>{{ $user->detail }}</p>

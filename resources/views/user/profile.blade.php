@@ -12,29 +12,12 @@
     <title>Profile user</title>
 </head>
 <header>
-    <div class="navbar" style="height: 200px">
-        <div class="nav">
-            <a class="logo">
-                <img src="{{ asset('photo/logo.png') }}" alt="" width="400px">
-            </a>
+        <div class="navbar">
             <div class="col" style="padding-top: 5%;">
                 <a href="{{ url('index') }}" class="text" style="font-size: 23px">PAGE</a>
-                <a href="/profileUser/" class="n-t" style="text-decoration: none;">
-                    @foreach ($profiles as $profile)
-                        <img src="{{ url('imageUser/' . $profile->profileimage) }}" alt="" class="img-item1"
-                            width="50px">
-                    @endforeach
-                </a>
                 @foreach ($profiles as $profile)@endforeach
-                <form action="{{ route('logout44', ['id' => $profile->id]) }}" method="post">
-                    @csrf
-                    <button href="" class="btn-logout">
-                        Log Out
-                    </button>
-                </form>
             </div>
         </div>
-    </div>
 </header>
 
 <body>
@@ -46,16 +29,6 @@
             </div>
             <div class="content-img">
                 <div class="Profile">
-                </div>
-                @foreach ($profiles as $profile)
-                    <img src="{{ url('imageUser/' . $profile->profileimage) }}" alt="" class="img-item1"
-                        style="width: 250px">
-                @endforeach
-                {{-- url('profile') ต้องเปลี่ยน ไปสร้างหน้าสำหรับแก้ไขรูป --}}
-                {{-- <td><a href="/edit-profile/{{ $profile->id }}" class="button">แก้ไขรูปโปรไฟล์</a></td> --}}
-            </div>
-            <div class="conent-body">
-                <div class="body-box">
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
@@ -88,7 +61,9 @@
                                 </tbody>
                             </table>
                         </div>
-                        <a href="{{ url('history') }}">ประวัติการซื้อ</a>
+                        <div class="history" >
+                            <a href="{{ url('history') }}" style="text-decoration: none; color:black">ประวัติการซื้อ</a>
+                        </div>
                     </div>
                 </div>
             </div>
