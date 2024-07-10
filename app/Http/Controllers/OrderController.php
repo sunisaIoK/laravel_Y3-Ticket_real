@@ -145,7 +145,7 @@ class OrderController extends Controller
             if ($request->hasFile('imagemap')) {
                 $file = $request->file('imagemap');
                 $imagemapname = time() . '.' . $file->getClientOriginalExtension();
-                $file->move(public_path('images'), $imagemapname);
+                $file->move(public_path('image'), $imagemapname);
                 $datacon->imagemap = $imagemapname;
             }
 
