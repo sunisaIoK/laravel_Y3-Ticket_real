@@ -4,17 +4,36 @@ body {
 }
 
 body {
-    margin: 0;
+    margin: 1px;
     background-color: black;
-    background: linear-gradient(135deg,
-            rgba(82, 134, 120, 0)10%,
-            rgba(14, 85, 59, 0.606)100%),
-        linear-gradient(to right, rgb(119, 117, 126) 10%, rgb(49, 7, 50) 100%);
+    background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.973) 0%,
+            rgb(255, 255, 255) 100%
+        ),
+        linear-gradient(
+            to right,
+            rgb(255, 255, 255) 0%,
+            rgb(255, 255, 255) 100%
+        );
     font-family: "Popins", sans-serif;
+    font-size: 20px;
+}
+
+option{
+    font-size: 20px;
+}
+select{
+    font-size: 20px;
+}
+
+p{
+    margin-bottom: -0.5%;
+    margin-top: 2%;
 }
 
 /* containaer */
-.container{
+.container {
     padding: 1%;
 }
 
@@ -33,7 +52,17 @@ body {
 
 .text-head {
     font-size: 50px;
-    color: rgb(167, 2, 90);
+    color: aliceblue;
+    background: linear-gradient(
+            135deg,
+            rgba(67, 84, 157, 0.973) 0%,
+            rgba(160, 49, 149, 0.786) 100%
+        ),
+        linear-gradient(
+            to right,
+            rgb(255, 255, 255) 0%,
+            rgb(255, 245, 255) 100%
+        );
     font-family: "Popins", sans-serif;
 }
 
@@ -55,7 +84,6 @@ body {
 }
 
 .body-box {
-    /* background-color: rgb(255, 255, 255); */
     padding: 5%;
     font-family: Arial, sans-serif;
 }
@@ -64,9 +92,11 @@ body {
     font-family: "Popins", sans-serif;
     font-size: 23px;
     color: rgb(255, 255, 255);
-    background: linear-gradient(135deg,
-            rgba(93, 4, 96, 0.973)0%,
-            rgba(255, 254, 254, 0.973)100%);
+    background: linear-gradient(
+        135deg,
+        rgba(4, 32, 96, 0.973) 0%,
+        rgba(91, 32, 106, 0.973) 100%
+    );
 }
 
 .btn {
@@ -75,91 +105,41 @@ body {
     color: rgb(251, 243, 249);
     border-radius: 10px;
     font-family: "Popins", sans-serif;
-    background: linear-gradient(135deg,
-            rgba(255, 255, 255, 0.973)0%,
-            rgba(236, 3, 213, 0.786)100%),
-        linear-gradient(to right, rgb(255, 255, 255) 0%, rgb(255, 245, 255) 100%);
-    box-shadow: inset 0 0 100px hsla(0, 0%, 0%, 0.3);
+    background: linear-gradient(
+            135deg,
+            rgba(67, 84, 157, 0.973) 0%,
+            rgba(160, 49, 149, 0.786) 100%
+        ),
+        linear-gradient(
+            to right,
+            rgb(255, 255, 255) 0%,
+            rgb(255, 245, 255) 100%
+        );
 }
 
-/* footer */
-footer {
-    padding: 1%;
-    margin-top: 10%;
-    background: linear-gradient(135deg,
-            rgba(14, 57, 70, 0.973)0%,
-            rgb(56, 14, 54)100%),
-        linear-gradient(to right, rgb(174, 174, 250) 0%, rgb(55, 9, 55) 100%);
-    box-shadow: inset 0 0 100px hsla(0, 0%, 0%, 0.3);
-    font-family: "Popins", sans-serif;
-    box-shadow: 2px 0px 50px 1px rgba(0, 0, 0, 0.444);
+.card-header{
+    background: linear-gradient(45deg, #15084b, #fe57f6, #bfd11d, #53cd27);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 25px;
 }
 
-.foot-body {
-    /* background-color: rgb(35, 89, 89); */
-    margin: 3%;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    /* 3 คอลัมน์แบบเท่ากัน */
-    gap: 5px;
-    /* ระยะห่างระหว่างข้อมูล */
-    justify-content: space-between;
+.addzone {
+    background: linear-gradient(
+            135deg,
+            rgba(67, 84, 157, 0.973) 0%,
+            rgba(160, 49, 149, 0.786) 100%
+        ),
+        linear-gradient(
+            to right,
+            rgb(255, 255, 255) 0%,
+            rgb(255, 245, 255) 100%
+        );
     font-size: 20px;
-    font-family: Arial, sans-serif;
-}
-
-.contact {
-    color: #000000;
-    padding: 2%;
-}
-
-.footer {
-    /* background-color: #88BFB5; */
-    padding: 5%;
-    margin-left: 100px;
-
-}
-
-.footer-1 {
-    /* background-color: #57752b; */
-    padding: 5%;
-    color: #000000;
-    box-shadow: 2px 0px 50px 1px rgba(9, 9, 9, 0.142);
-}
-
-.footer-2 {
-    /* background-color: #57752b; */
-    padding: 5%;
-    list-style-type: none;
-    color: #000000;
-    box-shadow: 2px 0px 50px 1px rgba(9, 9, 9, 0.142);
-}
-
-.footer-3 {
-    /* background-color: #57752b; */
-    padding: 5%;
-    list-style-type: none;
-    color: #000000;
-    box-shadow: 2px 0px 50px 1px rgba(9, 9, 9, 0.142);
-}
-
-.foot-text {
-    padding: 1%;
-}
-
-.foot-text:hover {
-    color: #ffffff;
-}
-
-.text-main {
-    color: #000000;
-}
-
-.text-main:hover {
-    color: #ffffff;
-}
-
-.foot-img {
-    text-align: center;
-    margin-top: 20%
+    text-decoration: none;
+    color: rgb(251, 243, 249);
+    border-radius: 10px;
+    font-family: "Popins", sans-serif;
+    margin-top: 2%;
 }
