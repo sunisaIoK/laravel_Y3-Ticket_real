@@ -206,7 +206,12 @@ class OrderController extends Controller
         // ดึงข้อมูลคอนเสิร์ตที่เร็วๆ นี้ (category_id = 2)
         $upcomingConcerts = datacon::where('category_id', 2)->get();
         $MusicFestival = datacon::where('category_id', 3)->get();
-        return view('user.index', compact('bookedNowConcerts', 'upcomingConcerts','MusicFestival'));
+
+        // ดึงข้อมูลผู้ใช้จาก session ถ้ามี
+        $userProfile = session('profile');
+        $user = User::find(session('loginId')); // Assuming 'loginId' is the user's id
+
+        return view('user.index', compact('bookedNowConcerts', 'upcomingConcerts','MusicFestival','userProfile'));
     }
 
 

@@ -1,0 +1,33 @@
+.body{
+    margin: 0;
+    padding: 0;
+    display: contents;
+    justify-content: center;
+}
+.container{
+    margin-top: 5%;
+}
+
+h1{
+    background: linear-gradient(45deg, #2b1237, #fe57f6, #bfd11d, #53cd27);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 2%;
+}
+
+a{
+    text-decoration: none;
+    font-size: 20px;
+    color: #1c1c7c;
+}
+a:hover{
+    text-decoration: none;
+    font-size: 20px;
+    color: #8e358b;
+}
+
+.table{
+    font-size: 20px;
+    margin-top: 2%;
+}

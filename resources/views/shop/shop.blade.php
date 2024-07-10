@@ -3,12 +3,20 @@
 <html>
 
 <head>
-    <title>Concert Detail</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="{{ asset('css/history.css') }}" rel="stylesheet">
+    <title>History</title>
 </head>
 
 <body>
     <!-- ตัวอย่างฟอร์มที่ใช้วิธี POST -->
-   <div class="container">
+    <div class="container">
         <h1>Purchase History</h1>
         @if ($purchases->isEmpty())
             <p>No purchases found.</p>
@@ -37,13 +45,12 @@
                             <td>{{ $purchase->price }}</td>
                             <td>{{ $purchase->date }}</td>
                             <td>{{ $purchase->created_at }}</td>
-                            
-                            <a href="{{ route('receipts.show', ['orderId' => $purchase->id]) }}">View Receipt</a>
-                                <!-- ลิงก์ไปยังหน้าใบเสร็จ -->
                         </tr>
+                        <a href="{{ route('receipts.show', ['orderId' => $purchase->id]) }}">View Receipt</a>
                     @endforeach
                 </tbody>
             </table>
+            <a href="{{ url('profileUser') }}">ย้อนกลับ</a>
         @endif
     </div>
 </body>

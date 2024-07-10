@@ -49,12 +49,6 @@
                                 <label for="email">Email</label>
                                 <input type="text" name="email" class="form-control" value="{{  $profile->email }}">
                             </div>
-                            <div class="form-group">
-                                <label for="file">Choose Profile Image</label>
-                                <input type="file" name="file" class="form-control" onchange="previeFile(this)" >
-                                <img id="previewImg" src="{{ asset('image') }}/{{ $profile->profileimage }}" alt="image" style="max-width: 130px;margin-top:20px;">
-                            </div><br>
-
                             <button type="submit" class="btn-d">Submit</button>
                         </form>
                     </div>

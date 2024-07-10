@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,8 +24,6 @@
                         <img src="{{ url('imageUser/' . $profile->profileimage) }}" alt="" class="img-item1"
                             width="50px">
                     @endforeach
-                    <div class="name-img">
-                        <p class="name" style=" margin-top: 10px; color:rgb(0, 0, 0)">{{ session('loginId') }}</p>
                 </a>
                 @foreach ($profiles as $profile)@endforeach
                 <form action="{{ route('logout44', ['id' => $profile->id]) }}" method="post">
@@ -51,7 +48,8 @@
                 <div class="Profile">
                 </div>
                 @foreach ($profiles as $profile)
-                    <img src="{{ url('imageUser/' . $profile->profileimage) }}" alt="" class="img-item1" style="width: 250px">
+                    <img src="{{ url('imageUser/' . $profile->profileimage) }}" alt="" class="img-item1"
+                        style="width: 250px">
                 @endforeach
                 {{-- url('profile') ต้องเปลี่ยน ไปสร้างหน้าสำหรับแก้ไขรูป --}}
                 {{-- <td><a href="/edit-profile/{{ $profile->id }}" class="button">แก้ไขรูปโปรไฟล์</a></td> --}}
@@ -90,6 +88,7 @@
                                 </tbody>
                             </table>
                         </div>
+                        <a href="{{ url('history') }}">ประวัติการซื้อ</a>
                     </div>
                 </div>
             </div>
@@ -101,60 +100,6 @@
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
     </script>
 </body>
-<footer>
-    <div class="foot-body">
-        <ul class="footer">
-            <h3 class="text-main">Contact</h3>
-            <div class="menu">
-                <a class="link" style="color: #3b5998;">
-                    <i class=" link-icon fa fa-facebook"></i>
-                    <span class="link-title">Facebook</span>
-                </a>
-                <a class="link" style="color: #1e2e77;">
-                    <i class=" link-icon fa fa-twitch"></i>
-                    <span class="link-title">Twitch</span>
-                </a>
-                <a class="link" style="color: #00aff0;">
-                    <i class=" link-icon fa fa-skype"></i>
-                    <span class="link-title">Skype</span>
-                </a>
-                <a class="link" style="color: #3cf;">
-                    <i class=" link-icon fa fa-twitter"></i>
-                    <span class="link-title">Twitter</span>
-                </a>
-                <a class="link" style="color: #dc4a38;">
-                    <i class=" link-icon fa fa-google"></i>
-                    <span class="link-title">Google</span>
-                </a>
-            </div>
-        </ul>
-        <ul class="footer-3">
-            <h3 class="text-main">JAK Concert</h3>
-            <h4 class="foot-text">บริการ</้>
-                <h5 class="foot-text">จำหน่ายตั๋วคอนเสิร์ต</h5>
-                <h5 class="foot-text">รับจองตั๋วคอนเสิร์ต</h5>
-        </ul>
-        <ul class="footer-1">
-            <h3 class="text-main">About Us</h3>
-            <h4 class="foot-text">JAK Concert</h4>
-            <h5 class="foot-text">เป็นบริษัทที่บริการเกี่ยวกับการจองตั๋วคอนเสิร์ตจากทั่วทุกมุมโลก
-                พร้อมให้บริการแก่ผู้ที่มีดนตรีในหัวใจ พร้อมสนุกไปด้วยกัน
-            </h5>
-            {{-- <li class="foot-text">About Us</li>
-        <li class="foot-text">Social Medial</li> --}}
-        </ul>
-        <ul class="footer-2">
-            <h3 class="text-main">JAK Concert</h3>
-            <h4 class="foot-text">บริการ</h4>
-            <h5 class="foot-text">จำหน่ายตั๋วคอนเสิร์ต</h5>
-            <h5 class="foot-text">รับจองตั๋วคอนเสิร์ต</h5>
-        </ul>
-        <div class="foot-img">
-            <img src="{{ asset('photo/384570185_1256346155028082_8847434753727363923_n-removebg-preview.png') }}"
-                alt="" width="200px">
-        </div>
-    </div>
-</footer>
 <script type="text/javascript">
     $('.show_confirm').click(function(event) {
         var form = $(this).closet("form");

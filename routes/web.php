@@ -70,7 +70,7 @@ Route::controller(IndexController::class)->group(function () {
 
 
 Route::controller(ProfileController::class)->group(function () {
-    Route::get('profile','create');
+    // Route::get('profile','create');
     Route::post('create-profile','store')->name('profile.store');
     Route::get('profileUser', 'ProfileUser');
     Route::get('show-profile/{id}', 'show');
